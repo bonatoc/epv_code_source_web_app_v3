@@ -1,0 +1,364 @@
+<!-- COMMENTED_OUT
+<ion-view view-title="Services" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>- EOF - COMMENTED_OUT -->
+
+<ion-view view-title="Services" >
+<ion-content class="padding" scroll="false" >
+
+<div class="page_content service_page">
+<div class="row row-up" layout="row" layout-align="center center">
+<div flex="66" layout="row" 
+layout-align="start start" 
+class="md-whiteframe-z2"
+>
+
+
+<!-- SIDENAV -->
+
+<div flex="25">
+<ion-content flex="25" class="service_list_wrapper">
+
+	<md-content class="service_list"> 
+		<ul class="list">
+		    <li class="item" 
+			ng-repeat="Service in Services | object2Array | orderBy:'Order' track by $index" 
+			ng-class="{'active': selectedServiceID == Service.id}"  
+			ng-click="setSelectedServiceID(Service.id);"
+			ng-show="Service.id"
+			>
+				<!-- TODO: WHY DO WE HAVE "GHOSTS" OBJECTS, WITHOUT IDs ? INVESTIGATE AND GET RID OF THE ng-show
+				- EOF - TODO: WHY DO WE HAVE "GHOSTS" OBJECTS, WITHOUT IDs ? INVESTIGATE AND GET RID OF THE ng-show -->
+				
+				<div layout="row" layout-align="center center">
+					<div flex>
+		      		  {{Service.Service | translate}}<i ng-if="selectedServiceID == Service.id" style="float:right;" class="icon ion-chevron-right"></i>
+
+<!-- COMMENTED_OUT
+					   - {{Service.id}} - {{ServiceID}} - {{selectedServiceID}}
+- EOF - COMMENTED_OUT -->
+
+					</div>
+				</div>
+		    </li>
+		</ul>
+	</md-content>
+	
+</ion-content>
+</div>
+	
+<!-- - EOF - SIDENAV -->	
+	
+
+
+<!-- SERVICE DETAIL PAGE -->
+
+		<div flex 
+		layout="row" 
+		layout-align="start stretch"
+		class="service_container" 
+		ng-if="selectedServiceID && (selectedCategoryID == 4 || selectedCategoryID == 6)"
+		>
+		
+			<!-- SERVICE LEFT COLUMN -->
+			<div flex="100" class="column_center"
+			layout="column" 
+			style="
+			"
+			>
+			
+				<!-- SERVICE TITLE -->
+				<div flex class="title_container">
+					<h1>
+						<div
+	  					stringid="{{Services[selectedServiceID]['ServiceString_ID']}}" 
+	  					stringname="{{Services[selectedServiceID]['Service']}}" 
+	  					front-office-edit="Services[selectedServiceID]['Service']" 
+						ng-bind-html="Services[selectedServiceID]['Service'] | translate | removebr"
+						></div>
+					</h1>
+				</div>
+				<!-- - EOF - SERVICE TITLE -->
+				
+				<div flex class="innertabs" style="order:1;">
+					<md-content>
+					
+						<div class="tab_gradient top"></div>
+						<div class="tab_gradient bottom"></div>
+					
+						<!-- DISPLAY MODE -->
+						<ion-content 
+						class="products_template_tabs_container" 
+						ng-show="!editMode" 
+						ng-hide="editMode"
+						>
+							<span ng-bind-html="Services[selectedServiceID].FullDescription | translate | unsafe"></span>
+						</ion-content>
+						<!-- - EOF - DISPLAY MODE -->
+						
+						
+						<!-- EDIT MODE
+						TODO: MAKE overflow-scroll="true" DYNAMIC, AND SEE WHAT HAPPENS. THE REPLICATION OF THE ENTIRE BLOCK IS A NO-NO.
+						 -->
+						<ion-content 
+						class="products_template_tabs_container" 
+						ng-show="editMode" 
+						ng-hide="!editMode" 
+						overflow-scroll="true"		
+						>
+							<div class="innertabs" 
+		  					stringid="{{Services[selectedServiceID].FullDescriptionString_ID}}" 
+		  					stringname="{{Services[selectedServiceID].FullDescription}}" 
+							alreadytranslated="{{Services[selectedServiceID].FullDescription | translate | unsafe}}" 
+		  					front-office-edit="Services[selectedServiceID].FullDescription" 
+							recompiler
+							></div>
+						</ion-content>
+						<!-- - EOF - EDIT MODE -->
+
+					</md-content>
+				</div>
+		
+		
+			</div> 
+			<!-- - EOF - SERVICE LEFT COLUMN -->
+			
+
+
+<!-- SERVICE SIDE PANEL -->
+
+			<div flex="33"  class="service_side_panel" 
+			layout="column"
+			>
+				<div flex 
+				class="image_container" style="
+				background:url(img/service-sliders/{{selectedServiceID}}/1.jpg);
+				"></div>
+				
+				<div flex class="column_right">
+<!-- COMMENTED_OUT
+					<ion-content scroll="false" class="scroll-content ionic-scroll scroll-content-false">
+- EOF - COMMENTED_OUT -->
+					<ion-content>
+
+						<div class="price_widget" 
+						ng-repeat="(contactKey, contact) in contactsArray | object2Array | orderBy:'Order' track by $index"
+						>
+							
+							<div class="product_option">
+								<div ng-bind-html="'str_'+contact.databaseColumn | translate | unsafe"></div>
+							</div>
+		
+							<div layout="row">
+								<a href="#">
+<!-- COMMENTED_OUT
+								<div flex="" class="product_option_icon icon-book-dowload-streamline"></div>
+- EOF - COMMENTED_OUT -->
+								<div flex="" ></div>
+								</a>
+								
+
+			
+								<div 
+								flex="90" 
+								class="price_notabene product_option_notabene ng-binding" 
+								>
+								
+<!-- COMMENTED_OUT
+								contactKey :{{contactKey}}<br>
+								contact :{{contact}}<br>
+- EOF - COMMENTED_OUT -->
+
+								<a ng-href="{{contact.urlPrefix | translate | unsafe}}{{contact[contact.databaseColumn] | translate | unsafe}}"  target="{{contact.hrefTarget}}" data-rel="external">
+									<span ng-bind-html="contact[contact.databaseColumn] | translate | unsafe"></span>
+								</a>
+							</div>
+							</div>
+		
+						</div>
+					</ion-content>
+				</div>
+				
+			</div>
+<!-- - EOF - SERVICE SIDE PANEL -->
+
+		</div>
+<!-- - EOF - SERVICE DETAIL PAGE -->			
+	
+	<!-- HORAIRES ET AGENDA -->
+		<div flex 
+				layout="row" 
+				layout-align="start stretch"
+				class="service_container" 
+				ng-if="selectedServiceID && (selectedCategoryID == 2)" 
+				>
+				
+				<!-- HORAIRES -->
+					<div flex class="column_center"
+					layout="column" 
+					ng-if="selectedServiceID == 86"
+					>
+					<div flex class="innertabs">
+						
+						<md-content>
+						
+						<div class="tab_gradient top"></div>
+						<div class="tab_gradient bottom"></div>
+						
+						
+						<!-- DISPLAY MODE -->
+						<ion-content 
+						class="products_template_tabs_container" 
+						ng-show="!editMode" 
+						ng-hide="editMode"
+						>
+							<span ng-bind-html="Services[selectedServiceID].FullDescription | translate | unsafe"></span>
+						</ion-content>
+						<!-- - EOF - DISPLAY MODE -->
+						
+						
+						<!-- EDIT MODE
+						TODO: MAKE overflow-scroll="true" DYNAMIC, AND SEE WHAT HAPPENS. THE REPLICATION OF THE ENTIRE BLOCK IS A NO-NO.
+						 -->
+						<ion-content 
+						class="products_template_tabs_container" 
+						ng-show="editMode" 
+						ng-hide="!editMode" 
+						overflow-scroll="true"		
+						>
+							<div class="innertabs" 
+		  					stringid="{{Services[selectedServiceID].FullDescriptionString_ID}}" 
+		  					stringname="{{Services[selectedServiceID].FullDescription}}" 
+							alreadytranslated="{{Services[selectedServiceID].FullDescription | translate | unsafe}}" 
+		  					front-office-edit="Services[selectedServiceID].FullDescription" 
+							recompiler
+							></div>
+						</ion-content>
+						<!-- - EOF - EDIT MODE -->
+						
+						
+						</md-content>
+						
+						
+					</div>
+					</div>
+
+					<!-- - EOF - HORAIRES -->					
+					
+					<!-- AGENDA -->
+					<div flex class="column_center"
+					layout="column" 
+					ng-if="selectedServiceID == 85"
+					style="
+					padding-bottom: 1.5rem;
+					padding-top: 3.4333rem;
+					
+					"
+					>
+						<md-content>
+						
+						<iframe
+					    frameborder="0" style="
+					   	height:110%; 
+					   	width:100%;
+					   	margin-top:-6.6666rem;
+						
+					   	" 
+						src="http://www.chateauversailles.fr/templates/versailles/gui/agenda/?option=com_cdvrubrique&idr=C1AD1FE0-AE43-9724-0C43-56D5BED43EB0"
+						></iframe>
+						
+						</md-content>
+					
+					</div>
+					<!-- - EOF - AGENDA -->		
+								
+		</div>
+	<!-- - EOF - HORAIRES ET AGENDA -->
+	
+	
+	
+	
+	
+	<!-- ACCÈS ET PLANS -->
+		
+		<div flex 
+				layout="row" 
+				layout-align="start stretch"
+				class="service_container" 
+				ng-if="selectedServiceID && (selectedCategoryID == 1)" 
+				>
+				
+					<div flex class="column_center"
+					layout="column" 
+					>
+					<div flex class="innertabs">
+						
+						<md-content 
+						class="products_template_tabs_container" 
+						style="
+					    margin-top: 3.15rem;
+					    padding-top: 0;
+					    overflow: hidden;
+						"
+						>
+
+							<iframe
+						    frameborder="0" style="
+  height: 110%;
+  width: 100%;
+  margin-top: -5.65rem;
+  padding-bottom: 2rem;
+						   	" 
+							ng-src="{{bienvenue_iframe}}"
+							></iframe>
+						
+						</md-content>
+						
+					</div>
+					</div>
+								
+		</div>
+		
+	<!-- - EOF - ACCÈS ET PLANS -->
+	
+	
+	
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+
+<!-- ABSOLUTE POSITIONED -->
+	<div class="demo">
+	<div class="bottom_nav">
+	
+		<md-button 
+		class="md-icon-button" 
+		ng-class="{'md-primary': editMode === false, 'md-accent': editMode === true}" 
+		aria-label="emptyString" 
+		on-tap="toggleEditMode()">
+			<md-tooltip>
+			    Éditer
+			</md-tooltip>
+		    <md-icon ng-class="{'ion-locked': editMode === false, 'ion-edit': editMode === true}"></md-icon>
+		</md-button>
+	
+	</div>
+	</div>
+<!-- - EOF - ABSOLUTE POSITIONED -->
+
+
+
+</ion-content>
+</ion-view>

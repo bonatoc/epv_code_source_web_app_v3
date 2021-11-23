@@ -1,0 +1,355 @@
+// TYPOGRAPHY
+
+
+	// CUSTOM FONTS ARE HEAVY! REMEMBER TO REMOVE NON USED FONTS BEFORE GOING INTO PRODUCTION
+
+	// CUSTOM FONTS
+	@font-face {
+	    font-family: 'apollon_rgbold';
+	    src: url('../fonts/apollon/apollon-bold-webfont.eot');
+	    src: url('../fonts/apollon/apollon-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('../fonts/apollon/apollon-bold-webfont.woff') format('woff'),
+	         url('../fonts/apollon/apollon-bold-webfont.ttf') format('truetype'),
+	         url('../fonts/apollon/apollon-bold-webfont.svg#apollon_rgbold') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'apollon_rgregular';
+	    src: url('../fonts/apollon/apollon-regular-webfont.eot');
+	    src: url('../fonts/apollon/apollon-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('../fonts/apollon/apollon-regular-webfont.woff') format('woff'),
+	         url('../fonts/apollon/apollon-regular-webfont.ttf') format('truetype'),
+	         url('../fonts/apollon/apollon-regular-webfont.svg#apollon_rgregular') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'minion_proregular';
+	    src: url('../fonts/minion/minionpro-regular-webfont.eot');
+	    src: url('../fonts/minion/minionpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('../fonts/minion/minionpro-regular-webfont.woff') format('woff'),
+	         url('../fonts/minion/minionpro-regular-webfont.ttf') format('truetype'),
+	         url('../fonts/minion/minionpro-regular-webfont.svg#minion_proregular') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+
+	}
+
+	@font-face {
+	    font-family: 'minion_probold';
+	    src: url('../fonts/minion/minionpro-bold-webfont.eot');
+	    src: url('../fonts/minion/minionpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('../fonts/minion/minionpro-bold-webfont.woff') format('woff'),
+	         url('../fonts/minion/minionpro-bold-webfont.ttf') format('truetype'),
+	         url('../fonts/minion/minionpro-bold-webfont.svg#minion_probold') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+
+	}
+
+	@font-face {
+	    font-family: 'minion_prosemibold';
+	    src: url('../fonts/minion/minionpro-semibold-webfont.eot');
+	    src: url('../fonts/minion/minionpro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('../fonts/minion/minionpro-semibold-webfont.woff') format('woff'),
+	         url('../fonts/minion/minionpro-semibold-webfont.ttf') format('truetype'),
+	         url('../fonts/minion/minionpro-semibold-webfont.svg#minion_prosemibold') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+
+	}
+	// - EOF - CUSTOM FONTS
+
+
+	// GOOGLE WEB FONTS
+	@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700|RobotoDraft:400,500,700,400italic|Open+Sans:300,400,600,700|Lora:400,700,400italic,700italic);
+//	@import url(https://fonts.googleapis.com/css?family=);
+//	@import url(http://fonts.googleapis.com/css?family=);
+//	@import url(http://fonts.googleapis.com/css?family=);
+	// - EOF - GOOGLE WEB FONTS
+
+
+
+	// FONT FAMILIES
+
+		$_header_titles : 'apollon_rgregular';
+		$_titles : 'apollon_rgbold';
+
+		$_body : 'minion_proregular';
+		$_body_bold : 'minion_prosemibold';
+
+		// $_info   : 'Roboto';
+		$_info   : 'Open Sans';
+
+	// - EOF - FONT FAMILIES
+
+
+
+
+	// SIZES AND KERNINGS
+
+		$_header_titles_size: 1.5rem;
+		$_header_titles_size_alternative: $_header_titles_size;
+		$_header_titles_line_height: 0.7rem;
+		$_header_titles_kerning: -.05rem;
+		$_header_titles_alternative_kerning: $_header_titles_kerning;
+
+
+		$_titles_size: 2.143rem;
+		$_titles_size_alternative: $_titles_size;
+		$_titles_line_height: 2.643rem;
+		$_titles_kerning: -.05rem;
+		$_titles_alternative_kerning: $_titles_kerning;
+
+
+		$_body_size: 1rem;
+		$_body_kerning: normal;
+
+
+		$_info_size: 0.5rem;
+
+		$_info_kerning: normal;
+
+	// - EOF - SIZES AND KERNINGS
+
+
+
+
+	// THE FOLLOWING MAY LOOK REDUNDANT, BUT SOME RESOLUTIONS NEED A MORE READABLE FONT, AND/OR DIFFERENT SIZES, COLORS, KERNINGS...
+	// SO IT'S BETTER TO BE MORE DECLARATIVE RATHER THAN NOT ENOUGH.
+
+	body{
+		font-family: $_body;
+//		font-size:1.2rem;
+//		line-height:1.6rem;
+
+		b, strong{
+			$_body_bold : 'minion_prosemibold';
+			font-weight: 100;
+		}
+	}
+
+	h1, h2, h3{
+		font-family: $_titles;
+	}
+
+
+
+
+// UI-BOOTSTRAP TOOLTIPS AND POPOVERS
+// .tooltip{
+// 	// background: red !important;
+// }
+
+// .tooltip.bottom-right .tooltip-arrow {
+//     top: 0;
+//     right: 1rem;
+//     @include rem(border-width, 0 10px 10px);
+//     border-bottom-color: red;
+//   }
+
+.tooltip.in{
+	opacity: 1;
+	background: white;
+}
+
+.tooltip-inner {
+// max-width: 14.2857142857em;
+// padding: 0.2142857143em 0.5714285714em;
+color: #575757;
+font-family: 'Open Sans' !important;
+// font-weight: 400 !important;
+// text-align: center;
+// text-decoration: none;
+background-color: white;
+// border-radius: 0;
+// border-radius: 0.2857142857rem;
+font-size: 0.8rem;
+word-break: break-all;
+padding: 0.3rem 0.4rem;
+padding-right: 1rem;
+
+	b, strong{
+		font-family: 'Open Sans' !important;
+		font-weight: 700 !important;
+		font-size: 0.85rem;
+	}
+}
+
+.tooltip.bottom{
+	// margin-left: 0.2rem;
+	margin-left: 0;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	border: 1px solid #acacac;
+	border-top: none; 
+}
+
+.tooltip.bottom .tooltip-arrow{
+	// display:none;
+	// color: white;
+	// background-color: white;
+	border-left-color: #999;
+	// margin-right: 0.45rem;
+}
+
+.popover.left{
+	z-index: 3000;
+}
+
+
+// UI-BOOTSTRAP TOOLTIPS AND POPOVERS
+
+
+
+
+	// ARTICLE
+	article{
+
+
+		ul li i{
+			// -webkit-transition-delay: 0.4s; /* Safari */
+   //  		transition-delay: 0.4s;
+			@include transition_set(all,0.4s);
+
+			color: #888;
+			font-size: 1.28rem;
+			cursor: pointer;
+			// line-height: 1rem;
+			vertical-align:middle;
+			padding-left: 0.2rem;
+
+			&:hover{
+				// @include iconInfoReadMore;
+				color: #2a6496;
+				// line-height: 1rem;
+				// padding-left: 0.1rem;
+				// font-size: 1.18rem;
+			}
+
+			&.icon-plus-circle{
+				font-size: 1.38rem;
+				// &:hover{
+				// 	@extend .icon-calendar; // FONTAWESOME PROPRIETARY
+				// }
+			}
+
+
+			&.icon-calendar{
+				padding-left: 0.25rem;
+				// &:hover{
+				// 	@extend .icon-calendar; // FONTAWESOME PROPRIETARY
+				// }
+			}
+
+			// &.icon-calendar:hover{
+			// 	padding-left: 0.25rem;
+			// 	@extend .icon-calendar; // FONTAWESOME PROPRIETARY
+			// }
+			
+		} // ul li i
+
+
+
+		.column-right{
+
+			b, strong{
+				// font-family: 'Open Sans' !important;
+				letter-spacing: normal !important;
+				font-weight: 600 !important;
+			}
+
+
+			i{
+				// font-size: 2.3rem;
+				font-size: 2.2rem;
+				margin-right: 0.5rem !important;
+				color: #888;
+			}
+
+			h4, h5{ // PRICES
+				color: #333;
+				color: black;
+				border-bottom: 1px solid #cbcbcb;
+			} // h4, h5
+
+
+			div:first-child h4{
+				margin-top: 0;
+
+				// $apply_after: map-get($breakpoints_apply_after, sm);
+				// @media (#{$apply_after}) {
+				// 	margin-top: 0.9rem;
+				// }
+
+
+				// $apply_after: map-get($breakpoints_apply_after, md);
+				// @media (#{$apply_after}) {
+				// 	margin-top: 0.9rem;
+				// }
+			} // div:first-child h4
+
+
+			h4{
+				// $apply_before: map-get($breakpoints_apply_before, sm);
+				// @media(#{$apply_before}){
+				font-size: 1.6rem;
+				margin: 2.2rem 1rem 0.3rem 0;
+
+				// $apply_after: map-get($breakpoints_apply_after, md);
+				// @media (#{$apply_after}) {
+				// 	font-size: 1.7rem;
+				// 	margin-top: 1.2rem;
+				// }
+
+					// border: 1px solid red;
+				// }
+			} // h4
+
+
+			h5{
+				// $apply_before: map-get($breakpoints_apply_before, sm);
+				// @media(#{$apply_before}){
+					font-size: 0.9rem;
+					font-weight: 600;
+					// margin: 2.2rem 1rem 0.3rem 0;
+					margin: 4rem 1rem 0.3rem 0;
+					padding-bottom: 0.3rem;
+					// border: 1px solid red;
+				// }
+			} // h5
+
+		} // .column-right
+
+
+		.popover{
+			font-family: $_info !important;
+			color:#575757;
+			font-size: 0.75rem;
+			line-height: 1.1rem;
+		}
+
+		.popover-title{
+			font-family: $_info !important;
+			font-weight: 700 !important;
+			background-color: $color1;
+			color:white;
+			margin: 0;
+
+			b{
+				font-family: $_info !important;
+				font-weight: 700 !important;
+			}
+
+		}
+
+	}
+	// - EOF - ARTICLE
+
+
+
+
+// - EOF - TYPOGRAPHY

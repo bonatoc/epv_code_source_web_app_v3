@@ -1,0 +1,5 @@
+/**
+ * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.html or http://ckeditor.com/license
+ */
+CKEDITOR.editorConfig=function(e){e.toolbar=[{name:"styles",items:["Styles","Format","Font","FontSize"]},{name:"basicstyles",groups:["basicstyles","cleanup"],items:["Bold","Italic","Underline","Strike","Subscript","Superscript","-","RemoveFormat"]},"/",{name:"paragraph",groups:["list","indent","blocks","align","bidi"],items:["BulletedList"]},{name:"links",items:["Link","Unlink"]},{name:"tools",items:["Maximize","ShowBlocks"]},{name:"others",items:["-"]},{name:"editing",groups:["find","selection"],items:["Find","Replace"]}],e.toolbarGroups=[{name:"editing",groups:["find"]},"/",{name:"basicstyles",groups:["basicstyles","cleanup"]},{name:"paragraph",groups:["list","indent","blocks","align","bidi"]},{name:"links"},{name:"insert"},"/",{name:"styles"},{name:"tools"},{name:"others"}],e.removeButtons="Underline,Subscript,Superscript,Strike,Styles,Font,FontSize,Anchor",e.format_tags="p;h1;h2;h3;h4;h5;pre",e.removeDialogTabs="image:advanced;link:advanced"};

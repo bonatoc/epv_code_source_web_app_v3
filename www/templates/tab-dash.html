@@ -1,0 +1,288 @@
+<ion-view view-title="Dashboard"
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+>
+
+
+  <ion-content class="padding has-header-with-subnav-folded" scroll="false">
+<div class="page_content homepage">
+	
+	<div class="row row-up">
+		
+		
+		
+
+					<ion-content scroll="false" class="background-img-full-height"  style="background-image:url('img/backgrounds/welcome.jpg');">
+		<!-- COMMENTED_OUT
+						<img id='background-image-stretchable' src="http://ns367573.ovh.net/castle_webapp/app/media/images/product-sliders/0/1.jpg"  class="image-stretchable">
+		- EOF - COMMENTED_OUT -->
+			
+						<div style="height:100%;" layout="row" layout-align="center center">
+							
+							
+							
+				  				      <script>
+				  				        // 2. This code loads the IFrame Player API code asynchronously.
+
+				  				        // 3. This function creates an <iframe> (and YouTube player)
+				  				        //    after the API code downloads.
+	
+	
+				  						
+						
+						
+				  				        function onYouTubeIframeAPIReady() {
+							
+				  							var array_of_iframes = [];
+				  							// array_of_iframes.push('d1zeF2_1KWU');
+				  							array_of_iframes.push('ETmC3jkDAwY');
+											
+											// alert('onYouTubeIframeAPIReady');
+						
+				  							array_of_iframes.push('pXFI4_TphM4');
+				  							array_of_iframes.push('ip9J8rfxbgA');
+				  							array_of_iframes.push('g-LlBxk0-Gg');
+						
+				  							// console.log('array_of_iframes ->');
+				  							// console.log(array_of_iframes);
+						
+				  							// player_{{$index}}
+				  					        // var window['player_'+i];
+
+				  							for (var i = 0, len = array_of_iframes.length; i < len; i++) {
+								
+				  	  				          window['player_'+i] = new YT.Player('player_'+i, {
+							  
+				  	  				            // height: '155%',
+				  	  				            // width: '155%',
+				  	  				            width: '130%',
+				  	  				            height: '130%',
+												suggestedQuality: 'hd720',
+				  	      playerVars: { 'autoplay': 1, 'controls': 0, 'loop':1, rel: 0 },
+							  
+				  	  				            // videoId: 'Ora35AzLxt0',
+				  	  				            videoId: array_of_iframes[i],
+				  	  				            events: {
+				  									'onReady': onPlayerReady,
+				  									'onStateChange': onPlayerStateChange
+				  	  				            }
+				  	  				          });
+								
+				  							  // someFn(arr[i]);
+				  	  						  $('#player_'+i).css({'opacity':0});
+							  
+							  
+				  							}
+							
+				  				        } // onYouTubeIframeAPIReady
+						
+			
+						
+				  						// function replayVideo() {
+				  						//
+				  						// }
+
+				  				        // 4. The API will call this function when the video player is ready.
+				  				        function onPlayerReady(event) {
+				  				          // event.target.playVideo();
+						  
+				    						var array_of_iframes = [];
+				    						// array_of_iframes.push('d1zeF2_1KWU');
+				  						array_of_iframes.push('ETmC3jkDAwY');
+				    						array_of_iframes.push('pXFI4_TphM4');
+				    						array_of_iframes.push('ip9J8rfxbgA');
+				    						array_of_iframes.push('g-LlBxk0-Gg');
+						
+				  						event.target.mute();
+										event.target.setPlaybackQuality('hd720');
+				  						event.target.setLoop(true);
+						  
+						  
+				  						// for (var i = 0, len = array_of_iframes.length; i < len; i++) {
+				  						//
+				  						//   						  // event.target.loadPlaylist(array_of_iframes[i]);
+				  						//   						  //   				          event.target.mute();
+				  						//   						  // event.target.setLoop(true);
+				  						//
+				  						//
+				  						//   // window['player_'+i].loadPlaylist(array_of_iframes[i]);
+				  						//   window['player_'+i].mute();
+				  						//   window['player_'+i].setLoop(true);
+				  						//
+				  						//
+				  						// }
+						
+						
+				  				        } // player.loadPlaylist
+
+
+				  				        // 5. The API calls this function when the player's state changes.
+				  				        //    The function indicates that when playing a video (state=1),
+				  				        //    the player should play for six seconds and then stop.
+				  				        var done = false;
+				  				        function onPlayerStateChange(event) {
+				  				          if (event.data == YT.PlayerState.PLAYING) {
+				  				            // setTimeout(stopVideo, 4000);
+				  							// console.log('event.target ->');
+				  							// console.log(event.target.c);
+							
+				  							event.target.c.style.opacity = '1';
+				  							event.target.setLoop(true);
+							
+				  							//
+				  							// for (var i = 0, len = array_of_iframes.length; i < len; i++) {
+				  							//
+				  							//     				        setTimeout(function(){
+				  							//     							// $(".iframevideocontainer").css({'opacity':'0'});
+				  							//     							// $(".iframevideocontainer").css({'opacity':'1'});
+				  							//     							$('#player_'+i).css({'opacity':1});
+				  							//     				        }, 4000);
+						  
+				  						// }
+							
+							
+				  				            // done = true;
+				  				          }
+						  
+				  				          if (event.data == YT.PlayerState.ENDED) {
+				    					        event.target.playVideo();
+				  							event.target.c.style.opacity = '1';
+				  							event.target.setLoop(true);
+				  				          }
+						  
+				  				          if (event.data == YT.PlayerState.BUFFERING) {
+				  							event.target.c.style.opacity = '0';
+				  				          }
+						  
+				  				        }
+						
+				  							// 	function stopVideo() {
+				  							// for (var i = 0, len = array_of_iframes.length; i < len; i++) {
+				  							//
+				  							// window['player_'+i].seekTo(1,true);
+				  							//
+				  							//
+				  							// }
+				  							//
+				  							// 				          // player.stopVideo();
+				  							// 				          // player.seekTo(1,true);
+				  							// 						  // player.playVideo();
+				  							// 				        }
+						
+				  						// var recurse = function(steps, delay) {
+				  						//     if(steps == 0) {
+				  						//         // console.log(data.length)
+				  						//     } else {
+				  						//         setTimeout(function(){
+				  						//             recurse(stopVideo());
+				  						// 			// $(".iframevideocontainer").css({'opacity':'0'});
+				  						// 			// $(".iframevideocontainer").css({'opacity':'1'});
+				  						//         }, 4000);
+				  						//     }
+				  						// };
+
+				  						// recurse(1000, 4000);
+	
+						
+				  						
+						
+				  				      </script>
+							
+<div style="
+display: inline;
+background: rgba(0,0,0,0.38); 
+
+/*
+transform: translate3d(100%,0,0);
+*/
+
+z-index:200;
+position:absolute;
+width: 35%;
+right:0;
+height:100%;
+text-align:left;
+padding:4rem 2rem 2rem 2.6rem;
+">
+	<h1 style="
+	color:white;
+	border-bottom:1px solid rgba(255,255,255,0.5);
+	display:inline-block;
+	font-size:1.75rem;
+	text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
+	text-shadow: 0px 0px 30px rgba(0,0,0,0.68), 0px 0px 16px rgba(0,0,0,0.68), 0px 0px 8px rgba(0,0,0,0.68);
+	padding-bottom:0.4rem;
+	">Manuel des Ventes 2015</h1>
+	
+
+	
+	<p style="
+	padding-top:2.72rem;
+	font-size:1.2rem;
+	text-shadow: 0px 0px 6px rgba(33, 33, 33, 1);
+	text-shadow: 0px 0px 30px rgba(0,0,0,0.88), 0px 0px 16px rgba(0,0,0,0.88), 0px 0px 8px rgba(0,0,0,0.88);
+	line-height: 2rem;
+	">
+
+			<span style="font-family:'Lusitana';">Bienvenue aux professionnels du tourisme.</span>
+			<br>
+			<br>
+<button ng-click="goFullscreen()">Enable/Disable Document Fullscreen</button>			
+<!-- COMMENTED_OUT
+			Cette brochure est à destination des comités d’entreprises, associations et responsables de groupes.
+			<br>
+			<br>
+				<span style="font-family:'EB+Garamond';">Cette brochure est à destination des comités d’entreprises, associations et responsables de groupes.</span>
+			<br>
+			<br>
+				<span style="font-family:'Lusitana';">Cette brochure est à destination des comités d’entreprises, associations et responsables de groupes.</span>
+			<br>
+			<br>
+			<b>test</b>
+- EOF - COMMENTED_OUT -->
+			<br>
+			<br>
+			
+	</p>
+	
+</div>
+<!-- COMMENTED_OUT
+    <div id="player_0" class="iframevideo_target" ></div>
+- EOF - COMMENTED_OUT -->
+							
+				  <youtube-video video-id="videos[0].youtube_url"></youtube-video>
+							
+							
+							
+							
+							
+<!-- COMMENTED_OUT
+							<h1 style="color:white;" style="z-index:200;">manuel des ventes 2015</h1>
+- EOF - COMMENTED_OUT -->
+						</div>
+			
+					</ion-content>
+					
+  		
+				
+<!-- COMMENTED_OUT
+				<img src="img/screencaps/Capture d’écran 2015-04-07 à 23.38.00.jpg" width="1920" height="1080" alt="Capture D’écran 2015 04 07 À 23.38.00">
+- EOF - COMMENTED_OUT -->
+		
+	
+	</div>
+
+	
+	
+	
+	
+
+
+
+
+
+</div>
+  </ion-content>
+</ion-view>

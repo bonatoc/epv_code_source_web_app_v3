@@ -1,0 +1,463 @@
+// NAV ICONS
+
+	// FROM OPACITY TO OPACITY : CSS OPACITY IS FAST ENOUGH TO AVOID USE OF JS (OR IS IT? TODO: INVESTIGATE)
+
+
+
+// FUNCTIONS AND MIXINS
+
+	// TODO : REMOVE AND REPLACE, NOT DRY ENOUGH
+	@mixin transition-opacity-in-0_3s {
+		$attribute: opacity;
+		$time: 0.3s;
+
+		transition: $attribute $time cubic-bezier(0.16, 0.63, 0.45, 0.98);
+	}
+
+
+	// TODO : REMOVE AND REPLACE, NOT DRY ENOUGH
+	@mixin transition-opacity-in-0_5s {
+		$attribute: opacity;
+		$time: 0.5s;
+
+		transition: $attribute $time cubic-bezier(0.16, 0.63, 0.45, 0.98);
+	}
+
+
+	// TODO : REMOVE AND REPLACE, NOT DRY ENOUGH
+	@mixin transition-all-in-1s {
+		transition: all 1s cubic-bezier(0.16, 0.63, 0.45, 0.98);
+	}
+
+
+	@mixin opacity-from-to ($opacity_from: 0.68, $opacity_to: 1) {
+
+		opacity:$opacity_from;
+
+		&:hover{
+			opacity: $opacity_to;
+		}
+	}
+
+
+	@mixin transition_set($target, $duration){
+		$easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+		$easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+		$easeInOutExpo : cubic-bezier(0.35,0.73,0.76,0.81);
+//		$easeInOutExpo : cubic-bezier(.18,.77,.79,.91);
+		
+		
+		
+
+		transition: $target $duration $easeInOutExpo;
+		-webkit-transition: $target $duration $easeInOutExpo;
+		-moz-transition: $target $duration $easeInOutExpo;
+		-o-transition: $target $duration $easeInOutExpo;
+		-ms-transition: $target $duration $easeInOutExpo;
+	}
+
+
+	@mixin makeOpaque-0_5 {
+		@include transition-opacity-in-0_5s;
+
+		$opacity_from: 0.68;
+		$opacity_to: 1; 
+
+		cursor: pointer;
+
+		@include opacity-from-to($opacity_from, $opacity_to);
+	}
+
+
+	@mixin makeOpaque-0_5b {
+		@include transition-opacity-in-0_5s;
+
+		$opacity_from: 0;
+		$opacity_to: 1; 
+
+		@include opacity-from-to($opacity_from, $opacity_to);
+	}
+
+// - EOF - FUNCTIONS AND MIXINS
+
+
+
+
+// KEN BURNS FX TESTING, RAW CSS
+
+
+
+
+// @-webkit-keyframes fade {
+// 	0% { opacity:0; -webkit-transform:translate(180px,60px) scale(1.00); }
+// 	10% { opacity:1; -webkit-transform:translate(140px,55px) scale(0.98); }
+// 	25% { opacity:1; -webkit-transform:translate(90px,40px) scale(0.94); }
+// 	45% { opacity:0; -webkit-transform:translate(50px,25px) scale(0.91); }
+// 	100% { opacity:0; -webkit-transform:translate(0px,0px) scale(0.9); }
+
+// 	// 0% { opacity:0;-moz-transform:translate(180px,60px) scale(2.00);  }
+// 	// 15% { opacity:1;-moz-transform:translate(80px,160px) scale(1.80); }
+// 	// 30% { opacity:0.5;-moz-transform:translate(40px,80px) scale(1.40); }
+// 	// 40% { opacity:0;-moz-transform:translate(0px,0px) scale(1.00); }
+// 	// 100% { opacity:0; } 
+ 
+// }
+// @-moz-keyframes fade {
+// 	// 0% { opacity:0;-moz-transform:translate(180px,60px) scale(2.00);  }
+// 	// 15% { opacity:1;-moz-transform:translate(80px,160px) scale(1.80); }
+// 	// 30% { opacity:0.5;-moz-transform:translate(40px,80px) scale(1.40); }
+// 	// 40% { opacity:0;-moz-transform:translate(0px,0px) scale(1.00); }
+// 	// 100% { opacity:0; } 
+// 	0% { opacity:0; -moz-transform:translate(180px,60px) scale(1.00); }
+// 	10% { opacity:1; -moz-transform:translate(140px,55px) scale(0.98); }
+// 	25% { opacity:1; -moz-transform:translate(90px,40px) scale(0.94); }
+// 	45% { opacity:0; -moz-transform:translate(50px,25px) scale(0.91); }
+// 	100% { opacity:0; -moz-transform:translate(0px,0px) scale(0.9); }
+// }
+
+$initial_scale: 0.92;
+$ending_x: 14px;
+$ending_y: 6px;
+
+@-webkit-keyframes fade {
+	0% { opacity:0; -webkit-transform:translate(0px,0px) scale($initial_scale); }
+	5% { opacity:1;  }
+	25% { opacity:1;  }
+	30% { opacity:0; -webkit-transform:translate($ending_x, $ending_y) scale(1.0); } 
+}
+
+@-webkit-keyframes fade_start_opaque {
+	0% { opacity:0; -webkit-transform:translate(0px,0px) scale($initial_scale); }
+	5% { opacity:1;  }
+	25% { opacity:1;  }
+	30% { opacity:0; -webkit-transform:translate($ending_x, $ending_y) scale(1.0); } 
+}
+
+@-webkit-keyframes fade_start_opaque_alt {
+	0% { opacity:0; -webkit-transform:translate(0px,0px) scale($initial_scale); }
+	// 3% { opacity:1;  }
+	5% { opacity:1;  }
+	25% { opacity:1;  }
+	30% { opacity:0; -webkit-transform:translate($ending_x, $ending_y) scale(1.0); } 
+}
+
+
+@-moz-keyframes fade {
+	0% { opacity:0; -webkit-transform:translate(0px,0px) scale($initial_scale); }
+	5% { opacity:1;  }
+	25% { opacity:1;  }
+	30% { opacity:0; -moz-transform:translate($ending_x, $ending_y) scale(1.0); } 
+}
+
+@-moz-keyframes fade_start_opaque {
+	0% { opacity:0; -webkit-transform:translate(0px,0px) scale($initial_scale); }
+	5% { opacity:1;  }
+	25% { opacity:1;  }
+	30% { opacity:0; -moz-transform:translate($ending_x, $ending_y) scale(1.0); } 
+}
+
+
+#CSS3Slideshow, #CSS3Slideshow img { position:absolute }
+
+#CSS3Slideshow { 
+	overflow:hidden;
+	width:100%; 
+	height:100%;
+
+	background-color: $color3;
+}
+
+#CSS3Slideshow img { 
+	@extend .undraggable;
+
+	// height: 110%;
+	// width: auto;
+
+	// left:-200px;
+	// top:-80px;
+
+
+//	left: -30%;
+//	top: -10%;
+//	height: 100vh;
+
+	
+	
+    left: -90%;
+    left: -124%;
+    left: -48%;
+    top: 0%;
+    top: -4%;
+    height: 98vh;
+    height: 94vh;
+    height: 94vh;
+	
+	width: auto;
+
+	opacity:0; 
+
+
+
+
+	// $apply_at: map-get($breakpoints, xs);
+	// @media #{$apply_at} {
+	// 	width: 108%;
+	// 	height: auto;
+	// 	top: -72%;
+	// 	left: -4%;
+	// }
+
+	// $apply_at: map-get($breakpoints, sm);
+	// @media #{$apply_at} {
+	// 	height: 105vh;
+	// 	top: -4%;
+	// 	left: -55%;
+	// }
+
+
+	// $apply_after: map-get($breakpoints_apply_after, sm);
+	// @media (#{$apply_after}) {
+	// 	// height: 100vh;
+	// 	// top: -4%;
+	// 	// left: -55%;
+
+	// 	left: -60%;
+	// 	top: -5%;
+	// 	height: 108vh;
+	// }
+
+	// $apply_after: map-get($breakpoints_apply_after, md);
+	// @media (#{$apply_after}) {
+	// 	// height: 100vh;
+	// 	// top: -4%;
+	// 	// left: -55%;
+
+	// 	left: -60%;
+	// 	top: -4%;
+	// 	height: 109vh;
+	// }
+
+}
+
+
+$animation_cycle : 24s; // MUST BE A PULTIPLE OF THE NUMBER OF SLIDES, USUALLY 4
+$delay_2 : 6s;
+$delay_3 : 12s;
+$delay_4 : 18s;
+
+
+
+#CSS3Slideshow .img1 {
+ 	opacity: 1;
+ 	-webkit-animation:fade_start_opaque_alt $animation_cycle linear infinite; 
+ 	-moz-animation:fade_start_opaque $animation_cycle linear infinite; 
+ 		-webkit-animation-delay:0s; -moz-animation-delay:0s;
+
+}
+
+#CSS3Slideshow .img2 {
+	-webkit-animation:fade $animation_cycle linear infinite; 
+	-moz-animation:fade $animation_cycle linear infinite; 
+	-webkit-animation-delay: $delay_2; -moz-animation-delay: $delay_2;
+}
+
+#CSS3Slideshow .img3 {
+ 	-webkit-animation:fade $animation_cycle linear infinite; 
+	-moz-animation:fade $animation_cycle linear infinite; 
+	-webkit-animation-delay: $delay_3; -moz-animation-delay: $delay_3;
+}
+
+#CSS3Slideshow .img4 { 
+	-webkit-animation:fade $animation_cycle linear infinite; 
+	-moz-animation:fade $animation_cycle linear infinite; 
+	-webkit-animation-delay: $delay_4; -moz-animation-delay: $delay_4;
+}
+
+
+// - EOF - KEN BURNS FX TESTING, RAW CSS
+
+
+
+
+// NG-ANIMATE
+	// $slide-time-enter: 0.3s;
+	// $slide-time-leave: 0.25s;
+	$slide-time-enter: 0.4s;
+	$slide-time-leave: 0s;
+	$animationNameLeft: fadeInLeftBig; // fadeInLeftBig
+	$animationNameRight: fadeInRightBig; // fadeInRightBig
+	$animationNameLeftOut: fadeOutLeftBig; // fadeInLeftBig
+	$animationNameRightOut: fadeOutRightBig; // fadeInRightBig
+
+
+.slide-left.ng-leave {
+	    // -webkit-animation: fadeOut $slide-time-leave;
+	    // -moz-animation: fadeOut $slide-time-leave;
+	    // -ms-animation: fadeOut $slide-time-leave;
+	    // animation: fadeOut $slide-time-leave;
+
+
+	    -webkit-animation: $animationNameLeftOut $slide-time-leave;
+	    -moz-animation: $animationNameLeftOut $slide-time-leave;
+	    -ms-animation: $animationNameLeftOut $slide-time-leave;
+	    animation: $animationNameLeftOut $slide-time-leave;
+	}
+
+	.slide-left.ng-enter {
+		// position: absolute;
+
+	    -webkit-animation: $animationNameRight $slide-time-enter;
+	    -moz-animation: $animationNameRight $slide-time-enter;
+	    -ms-animation: $animationNameRight $slide-time-enter;
+	    animation: $animationNameRight $slide-time-enter;
+	}
+
+	.slide-right.ng-leave {
+	    // -webkit-animation: fadeOut $slide-time-leave;
+	    // -moz-animation: fadeOut $slide-time-leave;
+	    // -ms-animation: fadeOut $slide-time-leave;
+	    // animation: fadeOut $slide-time-leave;
+
+
+	    -webkit-animation: $animationNameRightOut $slide-time-leave;
+	    -moz-animation: $animationNameRightOut $slide-time-leave;
+	    -ms-animation: $animationNameRightOut $slide-time-leave;
+	    animation: $animationNameRightOut $slide-time-leave;
+
+	}
+
+	.slide-right.ng-enter {
+		// position: absolute;
+
+
+	    -webkit-animation: $animationNameLeft $slide-time-enter;
+	    -moz-animation: $animationNameLeft $slide-time-enter;
+	    -ms-animation: $animationNameLeft $slide-time-enter;
+	    animation: $animationNameLeft $slide-time-enter;
+	}
+
+
+
+
+
+
+	$slide-time-enter: 0.4s;
+	$slide-time-leave: 0s;
+	$animationNameLeft: fadeInUpBig; // fadeInUpBig
+	$animationNameRight: fadeInDownBig; // fadeInDownBig
+	$animationNameLeftOut: fadeOutUpBig; // fadeOutUpBig
+	$animationNameRightOut: fadeOutDownBig; // fadeOutDownBig
+
+
+.slide-up.ng-leave {
+	    // -webkit-animation: fadeOut $slide-time-leave;
+	    // -moz-animation: fadeOut $slide-time-leave;
+	    // -ms-animation: fadeOut $slide-time-leave;
+	    // animation: fadeOut $slide-time-leave;
+
+
+	    -webkit-animation: $animationNameLeftOut $slide-time-leave;
+	    -moz-animation: $animationNameLeftOut $slide-time-leave;
+	    -ms-animation: $animationNameLeftOut $slide-time-leave;
+	    animation: $animationNameLeftOut $slide-time-leave;
+	}
+
+	.slide-up.ng-enter {
+		// position: absolute;
+
+	    -webkit-animation: $animationNameRight $slide-time-enter;
+	    -moz-animation: $animationNameRight $slide-time-enter;
+	    -ms-animation: $animationNameRight $slide-time-enter;
+	    animation: $animationNameRight $slide-time-enter;
+	}
+
+	.slide-down.ng-leave {
+	    // -webkit-animation: fadeOut $slide-time-leave;
+	    // -moz-animation: fadeOut $slide-time-leave;
+	    // -ms-animation: fadeOut $slide-time-leave;
+	    // animation: fadeOut $slide-time-leave;
+
+
+	    -webkit-animation: $animationNameRightOut $slide-time-leave;
+	    -moz-animation: $animationNameRightOut $slide-time-leave;
+	    -ms-animation: $animationNameRightOut $slide-time-leave;
+	    animation: $animationNameRightOut $slide-time-leave;
+
+	}
+
+	.slide-down.ng-enter {
+		// position: absolute;
+
+
+	    -webkit-animation: $animationNameLeft $slide-time-enter;
+	    -moz-animation: $animationNameLeft $slide-time-enter;
+	    -ms-animation: $animationNameLeft $slide-time-enter;
+	    animation: $animationNameLeft $slide-time-enter;
+	}
+
+
+
+
+
+
+
+
+
+// - EOF - NG-ANIMATE
+
+
+
+
+
+
+
+
+@mixin blurredMixin($type,$value){
+	filter: $type +'('+$value+')';
+     -webkit-filter: $type +'('+$value+')';
+     -moz-filter: $type +'('+$value+')';
+     -ms-filter: $type +'('+$value+')';
+     -o-filter: $type +'('+$value+')';
+}
+
+
+.blurred{
+	@include blurredMixin(blur,5px);
+	opacity: 0.8;
+	transition: 0.5s -webkit-filter linear;
+}
+
+
+
+
+
+
+.my-special-animation.ng-enter {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+
+  background:red;
+}
+
+/* destination animations */
+.my-special-animation.ng-enter.ng-enter-active {
+  background:blue;
+}
+
+
+
+
+
+// MOBILE SPECIFIC
+.undraggable{
+	/* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+    /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+    -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+    user-drag: none;
+}
+// - EOF - MOBILE SPECIFIC

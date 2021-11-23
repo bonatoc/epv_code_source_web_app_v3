@@ -1,0 +1,71 @@
+// COLORS
+
+
+	
+
+	// SINCE THERE IS NO LOGICAL WAY TO DECLARE COLOR HIERARCHY, LET'S PUT A SUFFIX NUMBER TO DEFINE IMPORTANCE (PRIORITY)
+
+	$color1: rgba(0, 67, 102, 1); 		// DARK BLUE
+	$color2: rgba(255, 255, 255, 1);	// WHITE
+	// $color3: rgba(246, 247, 249, 1);  	// VERY LIGHT GREY
+	$color3: rgba(252, 252, 251, 1);  	// VERY LIGHT GREY
+
+	$transparent: rgba(255,255,255,0);
+
+
+	$_titles_color: #333;
+	$_titles_alternative_color: $_titles_color;
+
+	$_body_color: #333;
+	$_info_color: black;	
+
+
+	// BOOTSTRAP VARIABLES OVERRIDES
+
+	$brand-primary : $color1;
+	$body-bg       : $color3;
+
+	// - EOF - BOOTSTRAP VARIABLES OVERRIDES
+
+
+
+	$link_positive_color: #3b5998;
+
+
+
+	%gradientWhiteTop {
+		background: -moz-linear-gradient(top,  rgba(252,252,251,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,251,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(252,252,251,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(252,252,251,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(252,252,251,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(252,252,251,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfb', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+	}
+
+	%gradientWhiteBottom {
+		background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(252,252,251,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(252,252,251,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(252,252,251,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(252,252,251,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(252,252,251,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(252,252,251,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#fcfcfb',GradientType=0 ); /* IE6-9 */
+	}
+
+
+
+$color-light: #dedede;
+
+
+
+// BACKGROUND COLORS
+
+.black_bkg{
+	background: black !important;
+}
+
+.white_bkg{
+	background: white !important;
+}
+// - EOF - COLORS

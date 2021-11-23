@@ -1,0 +1,302 @@
+// COMPASS IMPORTS
+	@import "compass/layout/stretching";
+	@import "compass/css3"; /* 
+	FOR DEV ONLY. 
+	TODO : WHEN WE WILL HAVE DETERMINED WHAT IS REALLY NEEDED, 
+	IMPORT EACH SINGLE NEEDED SCSS FILE INSTEAD OF ALL (WE DON'T NEED ALL OF COMPASS),
+	OR RATHER : MAKE A COPY, USE THIS COPY, AND COMMENT WHAT IS USELESS
+	*/
+// - EOF - COMPASS IMPORTS
+
+
+
+
+// IMPORT BOOTSTRAP SASS
+	@import "bootstrap-compass";
+	@import "bootstrap"; 
+	/* 
+	FOR DEV ONLY. 
+	TODO : WHEN WE WILL HAVE DETERMINED WHAT IS REALLY NEEDED, 
+	IMPORT EACH SINGLE NEEDED SCSS FILE INSTEAD OF ALL (WE DON'T NEED ALL OF BOOTSTRAP),
+	OR RATHER : MAKE A COPY, USE THIS COPY, AND COMMENT WHAT IS USELESS
+	*/
+	/*
+	TODO : REDEFINE MEDIA QUERIES BREAKPOINTS, TO MATCH THE BREAKPOINTS
+	DEFINED IN index.html (SEE JS SECTIONS)
+	*/
+// - EOF - IMPORT BOOTSTRAP SASS
+
+
+
+// IMPORT FONT AWESOME SASS
+
+	@import "font-awesome-4.1.0/scss/font-awesome"; 
+
+// - EOF - IMPORT FONT AWESOME SASS
+
+
+
+
+/*
+!!! - IMPORTANT NOTES - !!!
+
+1. use :
+	@include inline-block
+instead of:
+	display:inline-block;
+
+2. ...
+
+- EOF - !!! - IMPORTANT NOTES - !!!
+*/
+
+
+
+
+
+// UTILITIES
+
+	.test{
+		background: red;
+		opacity: 0.6;
+	}
+
+// -------- EOF - UTILITIES
+
+
+
+
+
+
+
+// FOR ANGULARJS
+
+	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	  opacity: 0 !important;
+	          -moz-transition: all 1s ease-in-out;
+	    -webkit-transition: all 1s ease-in-out;
+	    -o-transition: all 1s ease-in-out;
+	    transition: all 1s ease-in-out;
+	}
+
+// - EOF - FOR ANGULARJS
+
+
+
+
+
+
+
+
+// BREAKPOINTS
+
+	@import "cb_sass/breakpoints";
+
+// - EOF - BREAKPOINTS
+
+
+
+// TRANSITIONS, ANIMATIONS, TRANSFORMS
+
+	@import "cb_sass/transitions";
+
+// TRANSITIONS, ANIMATIONS, TRANSFORMS
+
+
+
+// COLORS
+
+	@import "cb_sass/colors"; 
+
+// - EOF - COLORS
+
+
+
+// TYPOGRAPHY
+
+	@import "cb_sass/fonts"; 
+
+// - EOF - TYPOGRAPHY
+
+
+
+
+
+
+
+
+
+// BASIC STYLES
+
+	html, body{
+		width: 100%;
+		height: 100vh;
+		min-height: 100vh;
+
+		background-color: $body-bg;
+
+		text-rendering: optimizeLegibility;
+		font-feature-settings: "kern";
+		-webkit-font-feature-settings: "kern";
+		-moz-font-feature-settings: "kern";
+		-moz-font-feature-settings: "kern=1";
+	}
+
+
+
+	nav ul{
+		list-style-type: none;
+
+		padding: 0;
+		margin: 0;
+		
+		li{
+				@include inline-block;
+		}
+	} 
+
+
+
+// - EOF - BASIC STYLES
+
+
+
+
+
+
+
+// MAIN BLOCKS 
+
+	// INIT
+	$header_height: 3rem;
+	$footer_height: 2rem;
+
+
+	@mixin heightBoxer($height)
+	{
+		height: $height;
+	  	min-height: $height;
+	  	line-height: $height;
+	}
+
+
+	.navbars{
+		@include stretch-x; 	// width: 100%;
+		@include box-sizing(border-box);
+
+		position: absolute;
+		z-index: 50;
+
+		padding: 0 1.3rem 0 1rem;
+		// opacity: 0.6; // JUST FOR TESTING. AFTER SUCCESS, SET BACKGROUND TO NONE TO MAKE TOP AND BOTTOM PANELS APPEAR UNDERNEAT.
+	}
+
+
+
+	header{
+		@extend .navbars;
+		@include heightBoxer($header_height);
+
+	  	top: 0;
+
+		background: $color1;
+
+		li {
+			@include inline-block;
+			@include heightBoxer($header_height);
+			vertical-align: middle;
+		}
+	}
+
+
+
+	footer{
+		@extend .navbars;
+		@include heightBoxer($footer_height);
+
+	  	bottom: 0;
+
+		background: $color2;
+	  	border-top: 1px solid shade($color3, 11%);	
+	}
+
+
+
+
+	section{
+		@include stretch; // width: 100%; height:100%;
+		@include inline-block;
+		@extend .body-font;
+
+		z-index: 0;
+
+		margin-top: $header_height;
+		margin-bottom: $footer_height;
+
+		overflow-y: hidden; // MAY BE USELESS, MAYBE APPLY IT ONLY TO ELEMENTS THAT NEED customScrollBar (JQUERY PLUGIN) 
+
+		figure{
+			@include stretch; 	// width: 100%;
+			@include inline-block;
+			@include box-sizing(border-box);
+
+			@extend .col-xs-12; 
+			@extend .col-sm-2; 
+			@extend .col-md-3; 
+			@extend .col-lg-3; 
+			@extend .col-xl-4;
+
+			$border: 1px solid rgba(0, 0, 0, 0.06);
+
+			height: 100%;
+
+			border-right: $border;
+			background-color: shade($color3, 8%);
+
+			$apply_before: map-get($breakpoints_apply_before, xs);
+			@media(#{$apply_before}){
+				height: 30%;
+				border-right: none;
+				border-bottom: $border;
+			}
+		}
+
+		article{
+			// @include stretch; 	// width: 100%;
+			// height: 100%;
+
+			// // @include box-sizing(border-box);
+
+			// @extend .col-xs-12; 
+			// @extend .col-sm-10; 
+			// @extend .col-md-9; 
+			// @extend .col-lg-9; 
+			// @extend .col-xl-8;
+
+			@extend .col-xs-12; 
+			@extend .col-sm-9; 
+			@extend .col-md-8; 
+			@extend .col-lg-8; 
+			@extend .col-xl-7;
+
+			// overflow-y: hidden;
+		}
+
+	}
+
+// - EOF - MAIN BLOCKS
+
+
+
+
+
+
+
+
+
+// - EOF - CB FRAMEWORK CUSTOM MADE STYLES
+
+
+
+
+

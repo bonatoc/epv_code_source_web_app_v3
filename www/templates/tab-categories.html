@@ -1,0 +1,110 @@
+<ion-view view-title="Services" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>
+<ion-content class="padding" scroll="false" style="background:#F5F5F5;">
+<div class="page_content product_family_page" style="
+background:#ECEFF1;
+">
+
+<div class="row row-up" layout="row" layout-align="center center">
+
+
+<div flex="66" style="
+background: white;
+height: inherit;
+color: black;
+" 
+layout="row" 
+layout-align="start start" 
+class="md-whiteframe-z1"
+>
+
+<div flex="25" style="
+height: inherit;
+"
+>
+<ion-content flex="25" style="
+left:16.6666%;
+width:16.6666%;
+background: #FAFAFA;
+top:8.9rem;
+">
+<!-- COMMENTED_OUT
+	hello 1st<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello last<br>- EOF - COMMENTED_OUT -->
+
+	
+	<md-content style="
+	overflow: hidden;
+	"> 
+		<ul class="list" >
+		    <li class="item" ng-repeat="Service in Services | orderBy:'Order' track by $index" ng-class="{'active':isCurrentLanguage(language)}" on-tap="changeLanguage(language);">
+		
+				<div layout="row" layout-align="center center">
+					<div flex>
+		      {{Service.Service | translate}} - {{Service.id}} - {{Service.Order}}
+					</div>
+			
+				</div>
+		
+		    </li>
+		</ul>
+	</md-content>
+	
+</ion-content>
+</div>
+	
+	
+<!-- COMMENTED_OUT
+		<md-content> 
+			<ul class="list" >
+			    <li class="item" ng-repeat="language in appLocalesArray" ng-class="{'active':isCurrentLanguage(language)}" on-tap="changeLanguage(language);">
+			
+					<div layout="row" layout-align="center center">
+						<div flex>
+			      test
+						</div>
+				
+					</div>
+			
+			    </li>
+			</ul>
+		</md-content> - EOF - COMMENTED_OUT -->
+
+			
+		<div flex style="
+	height: inherit;
+	">
+		details
+	</div>
+	
+</div>
+	  
+
+	
+
+
+
+</div>
+</div>
+</ion-content>
+</ion-view>

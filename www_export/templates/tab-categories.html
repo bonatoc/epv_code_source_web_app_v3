@@ -1,0 +1,140 @@
+<ion-view view-title="Productfamilies" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>
+<ion-content class="padding" scroll="false" style="background:#F5F5F5;">
+<div class="page_content product_family_page">
+	  
+
+	
+<div class="row row-up">
+
+    <div class="col col-67">
+  	<ion-content 
+	class="col-1 gridListdemoBasicUsage" 
+	scroll="false">
+	
+			
+  	</ion-content>
+  	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+  	<div class="col col-33">
+			
+<!-- DO NOT DELETE : EXAMPLE OF STICKY INNER TOPNAV, FOR SECONDARY ACTIONS
+  			<div style="
+  			float:right;
+  			background:black;
+  			height:2rem;
+  			width:2rem;
+  			padding:0;
+  			margin:0;
+  			z-index:300;
+  			">
+  				 2b
+  			</div>
+- EOF - O NOT DELETE : EXAMPLE OF STICKY INNER TOPNAV, FOR SECONDARY ACTIONS -->
+
+		<ion-content class="col-2 md-whiteframe-z2" scroll="false">
+		
+		
+			
+<!-- ANGULAR MATERIAL LIST (SEE HOW MUCH NEEDS TO BE REFACTORED)
+			    <md-list>
+			      <md-subheader class="md-no-sticky">3 line item</md-subheader>
+			      <md-item class="md-3-line" ng-repeat="item in Services | object2Array | orderBy:'Order'">
+			        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+			        <div class="md-item-text">
+			          <h3>test{{ item.who }}</h3>
+			          <h4>test{{ item.what }}</h4>
+			          <p>test{{ item.notes }}</p>
+			        </div>
+			    </md-list>
+- EOF - ANGULAR MATERIAL LIST (SEE HOW MUCH NEEDS TO BE REFACTORED) -->
+				
+				
+<!-- IONIC LIST
+				<ul class="list">
+				    <li class="item" ng-repeat="service in Services | object2Array | orderBy:'Order'">
+				      {{service.Service | translate}}
+				    </li>
+				</ul>
+- EOF - IONIC LIST -->
+				
+			
+			
+  				
+			<div class="right_col_flex_rows">
+				<div>
+<!-- DEBUG, LEAVE IN PLACE
+					selectedProdFamID is currently {{selectedProdFamID}}
+					<br>
+					below is test-directive
+					<br>
+					<div test-directive></div>
+- EOF - DEBUG, LEAVE IN PLACE -->
+					
+					<h4
+					ng-bind-html="section.title | translate" 
+					front-office-edit="section.title" 
+					ng-attr-stringid="{{section.title_stringid}}" 
+					ng-attr-stringname="{{section.title}}" 
+					></h4>
+				</div>
+			</div>
+			
+			<div class="right_col_flex_rows">
+				this is categories template
+				<p
+				ng-bind-html="section.text | translate" 
+				front-office-edit="section.text"
+				></p>
+			</div>
+			
+			
+			<div class="demo">
+			<div class="bottom_nav">
+				
+				<md-button class="md-icon-button" ng-class="{'md-primary': editMode === false, 'md-accent': editMode === true}" aria-label="Edit"  on-tap="toggleEditMode()">
+					<md-tooltip>
+					          Éditer
+					</md-tooltip>
+				    <md-icon ng-class="{'ion-locked': editMode === false, 'ion-edit': editMode === true}"></md-icon>
+				</md-button>
+				
+				<md-button class="md-icon-button" ng-class="{'md-primary': iframesStatus === false, 'md-accent': iframesStatus === true}" aria-label="Edit"  on-tap="iframesStatus = !iframesStatus; hide_iframes(iframesStatus);">
+					<md-tooltip>
+					          Vidéos
+					</md-tooltip>
+				    <md-icon ng-class="{'ion-play': iframesStatus === false, 'ion-stop': iframesStatus === true}"></md-icon>
+				</md-button>
+				
+			</div>
+			</div>
+
+				
+  		</ion-content>
+  	</div>
+	
+	
+	
+	
+  	</div>
+
+
+</div>
+</ion-content>
+</ion-view>

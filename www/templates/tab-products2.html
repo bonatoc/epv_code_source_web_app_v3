@@ -1,0 +1,583 @@
+<!-- COMMENTED_OUT
+<ion-view view-title="Products" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>- EOF - COMMENTED_OUT -->
+
+<ion-view view-title="Products">
+<ion-content class="padding page_content products_template" scroll="false">
+
+			
+<!-- COMMENTED_OUT
+			<div layout="row" class="row-up">
+			  <div flex  style="background:orange";>
+			    [flex]
+			  </div>
+			  <div flex  style="background:red";>
+			    [flex]
+			  </div>
+			</div>
+- EOF - COMMENTED_OUT -->
+			
+	
+	<div flex layout="row" class="row-single">
+		
+		<!-- 1ST HALF OF THE SCREEN -->
+	 	<md-content flex="50">
+		
+		
+		
+		
+		
+	<!-- PRODUCT IMAGE, NOT NECESSARILY A SLIDESHOW - TODO: ZOOMABLE_CONTENT -->
+		<figure>
+			<div id="CSS3Slideshow">
+				<img data-ng-repeat="counter in [1,2,3,4]" class="img{{::counter}} " ng-src="img/product-sliders/{{::selectedProductID}}/{{::counter}}.jpg">
+				
+<!-- PRELOADING OF ASSETS - TODO : WEBWORKER OR LAZYLOAD
+				<div ng-if="counter > 1" style="display:none; background-image:url(img/product-sliders/{{::nextPageID}}/{{::counter}}.jpg)"></div>
+				<div ng-if="counter > 1" style="display:none; background-image:url(img/product-sliders/{{::previousPageID}}/{{::counter}}.jpg)"></div>
+- EOF - PRELOADING OF ASSETS - TODO : WEBWORKER OR LAZYLOAD -->
+				
+			</div>
+		</figure>
+	<!-- - EOF - PRODUCT IMAGE, NOT NECESSARILY A SLIDESHOW -->	
+	
+	
+	
+	
+	
+	<!-- PRODUCT FLAG IS AN ELEMENT WHICH CAN BE PLACED ANYWHERE AS LONG AS ITS PRIORITY IS UNDERSTOOD : IT CONTAINS THE PRODUCT NAME, AND THE PRIMARY INFO ATTACHED TO IT -->
+	
+		<div class="product_flag" ng-class="{'translated': productSidePanelIsTranslated}">
+			
+			
+			<div class="go_back" 
+			layout="row" 
+			layout-align="start center"
+			>
+			<div flex="25" class="icon_container">
+					<md-button class="md-fab md-mini">
+						<md-icon class="ion-ios-arrow-back" style="color:rgba(255,255,255,1);"></md-icon>
+					</md-button>
+				</div>
+				<div flex 
+				class="hint" 
+				ng-bind-html="Productfamily.stringToDisplay | translate">
+				</div>
+			</div>
+	
+	
+		<!-- PRODUCT TITLE AND SLOGAN PHRASE -->
+		<!-- ON h1 BELOW, USE font-size: 1.55rem; WHEN NAME TOO LONG (SEE DIRECTIVE) - XXL ONLY (1920x1080) -->
+		<div class="product_title" 
+		ng-mouseover="makeOpaque('.go_back',1)" 
+		ng-mouseleave="makeOpaque('.go_back',0)" 
+		ui-sref="tab.productfamilies({prodFamID: selectedProdFamID})">
+			
+
+			
+			<!-- PRODUCT'S NAME -->
+				<h1>
+					<div 
+					stringid="{{::Product.ProductString_ID}}" 
+					stringname="{{::Product.Product}}" 
+					front-office-edit="Product.Product" 
+					check-name-length 
+					string-compiler
+					></div>
+				</h1>
+			<!-- - EOF - PRODUCT'S NAME -->
+			
+			<!-- PRODUCT'S SLOGAN -->
+<!-- COMMENTED_OUT
+				<h4>
+					<div 
+					stringid="{{::Product.ShortDescriptionString_ID}}" 
+					stringname="{{::Product.ShortDescription}}" 
+					front-office-edit="Product.ShortDescription" 
+					remove-br 
+					string-compiler
+					></div>
+				</h4>
+- EOF - COMMENTED_OUT -->
+			<!-- - EOF - PRODUCT'S SLOGAN -->
+			
+<!-- COMMENTED_OUT
+			<div layout="row" style="
+			padding: 0 2rem;
+			">
+				<div flex="20" ng-repeat="key in [0,1,2]">
+
+					<md-button class="md-fab md-mini" style="
+					height:2.2rem;
+					width:2.2rem;
+					line-height:100%;
+					margin:0;
+					padding:14%;
+					background:rgba(255,255,255,0.18);
+					">
+						<md-icon class="ion-social-twitter" style="color:rgba(255,255,255,0.5);"></md-icon>
+					</md-button>
+					
+				</div>
+			</div>
+- EOF - COMMENTED_OUT -->
+			
+		</div>
+		<!-- - EOF - PRODUCT TITLE AND SLOGAN PHRASE -->
+		
+
+
+			
+		
+<!-- SHARE ICONS -->
+		<div layout="row" layout-align="start center" class="share_on_social_networks">
+			
+			
+			
+<!-- COMMENTED_OUT
+			<div flex="20" 
+			class="icon_container" 
+			>
+				<md-button class="md-fab md-mini" >
+					<md-icon class="ion-android-share-alt"></md-icon>
+				</md-button>
+			</div>
+			<div flex="100" 
+			class="icon_container" 
+			>
+			Partager
+			</div>
+- EOF - COMMENTED_OUT -->
+			
+			
+			
+			
+			<div flex="20" 
+			ng-repeat="socialIcon in socialNetworksIcons" 
+			class="icon_container" 
+			>
+				<md-button class="md-fab md-mini {{socialIcon.buttonCssClass}}" 
+				tooltips 
+				tooltip-title="{{socialIcon.tooltipString | translate}}" 
+				tooltip-side="bottom" 
+				aria-label="emptyString">
+<!-- COMMENTED_OUT
+					<md-icon class="ion-social-twitter" style="color:rgba(255,255,255,0.5);"></md-icon>
+- EOF - COMMENTED_OUT -->
+					<md-icon class="{{socialIcon.iconCssClass}}"></md-icon>
+	
+				</md-button>
+
+			</div>
+		</div>
+
+<!-- - EOF - SHARE ICONS -->			
+		
+		
+		
+		
+			<!-- PRICES TODO: MOVE ALL LOGIC TO A DIRECTIVE -->
+			<div class="prices_container" on-drag-left="onDragLeft()"  on-drag-right="onDragRight()">
+				
+				
+
+<!-- COMMENTED_OUT
+				<ion-content scroll="true">
+				
+				ng-attr-stringid="{{Product.Tab1String_ID}}" 
+				ng-attr-stringname="{{Product.Tab1}}" 
+				front-office-edit="Product.Tab1" 
+				string-compiler="Product.Tab1"
+				
+				
+				ng-bind-html="Productoption.FullDescription | translate" 
+				
+				/*
+				FormSelectOptionString_ID: null
+				FullDescription: "str_FullDescriptionString_ID_productoptions_1"
+				FullDescriptionString_ID: "785"
+				InternalRefCode: ""
+				Order: null
+				Productoption: "str_ProductoptionString_ID_productoptions_1"
+				ProductoptionIcon: "icon-headset-sound-streamline"
+				ProductoptionString_ID: "107"
+				ProductoptionURL: "str_ProductoptionURLString_ID_productoptions_1"
+				ProductoptionURLString_ID: "820"
+				Productoption_URL: ""
+				ShortDescription: "str_ShortDescriptionString_ID_productoptions_1"
+				ShortDescriptionString_ID: "108"
+				VisibleTab1: "1"
+				VisibleTab2: "1"
+				id: 1
+				*/
+				{{Productoption.ShortDescription | translate}}
+- EOF - COMMENTED_OUT -->								
+
+				<!-- PRODUCT OPTIONS -->
+<!-- COMMENTED_OUT
+				<div class="price_widget" ng-repeat="Productoption in Productoptions">
+					
+					<div class="product_option" 
+					>
+						<div 
+						id=""
+						stringid="{{::Productoption.ShortDescriptionString_ID}}" 
+						stringname="{{::Productoption.ShortDescription}}" 
+						front-office-edit="Productoption.ShortDescription" 
+						string-compiler
+						>
+							test
+						</div>
+					</div>
+					
+					<div layout="row">
+						<div flex class="product_option_icon {{Productoption.ProductoptionIcon}}"></div>
+						<div flex="90" class="price_notabene product_option_notabene" 
+						stringid="{{::Productoption.FullDescriptionString_ID}}" 
+						stringname="{{::Productoption.FullDescription}}" 
+						front-office-edit="Productoption.FullDescription" 
+						string-compiler
+						></div>
+					</div>
+					
+				</div>
+- EOF - COMMENTED_OUT -->
+				<!-- - EOF - PRODUCT OPTIONS -->
+				
+				
+				<div class="price_widget" ng-repeat="Productprice in Productprices">
+					<div layout="row" layout-align="space-between center">
+						<h5 flex="50">{{Productprice.ProductPriceInEuros | number:0}}</h5>
+						<md-button 
+						flex="50" 
+						aria-label="emptyString"
+						>Commander</md-button>
+					</div>
+					<div class="price_notabene"
+					ng-bind-html="Productprice.ProductPriceNotaBene | translate"
+					></div>
+				</div>
+				
+<!-- COMMENTED_OUT
+				</ion-content>
+- EOF - COMMENTED_OUT -->
+				
+			</div>
+			<!-- - EOF - PRICES -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	<!-- - EOF - PRODUCT FLAG IS AN ELEMENT WHICH CAN BE PLACED ANYWHERE AS LONG AS ITS PRIORITY IS UNDERSTOOD : IT CONTAINS THE PRODUCT NAME, AND THE PRIMARY INFO ATTACHED TO IT -->
+						
+		</md-content>
+		<!-- - EOF - 1ST HALF OF THE SCREEN -->
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- 2ND HALF OF THE SCREEN -->
+		
+	 	<md-content flex="50" class="row-single product_tabs_wrapper" layout="row"  
+		layout-align="center start" ng-class="{'translated': productSidePanelIsTranslated}"
+		>
+			<div class="product_tabs_container">
+				
+<!-- COMMENTED_OUT
+	  	  	  <md-tabs md-center-tabs md-stretch-tabs="always" md-no-pagination>
+	  				<md-tab ng-repeat="topnavTab in [0,1]" >
+	  					<md-tab-label>
+	  					<a href="#{{topnavTab.url}}{{latestSelectedSubnavIndex[$index]}}">test</a>
+	  					</md-tab-label>
+	  				</md-tab> 
+	  	  	  </md-tabs>
+- EOF - COMMENTED_OUT -->
+			  
+			  <md-content>
+			      <md-tabs md-border-bottom md-stretch-tabs="always" md-no-pagination md-selected="selectedProductTabsIndex">
+			        <md-tab md-on-select="scrollTop(0); onDragRight();" >
+					
+					
+				    <md-tab-label>
+<!-- COMMENTED_OUT
+				       <div angular-ripple>{{'ProductTabTitleDefault1' | translate}}</div>
+- EOF - COMMENTED_OUT -->
+				       {{'ProductTabTitleDefault1' | translate}}
+				     </md-tab-label>
+				     <md-tab-body>
+			          <md-content>
+			            
+							<div class="tab_gradient top"></div>
+							<div class="tab_gradient bottom"></div>
+						
+						<!-- CANNOT CONTROL ION CONTENT'S SCROLL overflow-scroll="true" DYNAMICALLY. USE ng-if TO CHECK IF EDIT MODE IS ACTIVATED - TODO: EDIT MODE SHOULD BE A SERVICE	 -->
+						
+
+							<ion-content ng-show="!editMode" ng-hide="editMode" 
+							class="products_template_tabs_container" 
+							delegate-handle="tab_target_0" 
+							scroll="true"
+							>
+								<div class="innertabs product_slogan">
+									<h1>
+										<div
+					  					stringid="{{Product.ShortDescriptionString_ID}}" 
+					  					stringname="{{Product.ShortDescription}}" 
+					  					front-office-edit="Product.ShortDescription" 
+										ng-bind-html="Product.ShortDescription | translate | removebr"
+										></div>
+									</h1>
+								</div>
+								
+
+								<div id="#tab1" 
+								class="innertabs" 
+								ng-class="{'active': selectedProductTab == 0}" 
+			  					stringid="{{Product.Tab1String_ID}}" 
+			  					stringname="{{Product.Tab1}}" 
+								alreadytranslated="{{Product.Tab1 | translate |unsafe}}" 
+			  					front-office-edit="Product.Tab1" 
+								ng-bind-html="Product.Tab1 | translate | removebr"
+								></div>
+							</ion-content>
+							
+							
+							
+							
+							<div ng-show="editMode" ng-hide="!editMode" 
+							class="products_template_tabs_container" 
+							delegate-handle="tab_target_0" 
+							>
+								<div class="innertabs product_slogan">
+									<h1>
+										<div
+					  					stringid="{{Product.ShortDescriptionString_ID}}" 
+					  					stringname="{{Product.ShortDescription}}" 
+					  					front-office-edit="Product.ShortDescription" 
+										string-compiler
+										></div>
+									</h1>
+								</div>
+							
+								<div id="#tab1" 
+								class="innertabs" 
+								ng-class="{'active': selectedProductTab == 0}" 
+			  					stringid="{{Product.Tab1String_ID}}" 
+			  					stringname="{{Product.Tab1}}" 
+								alreadytranslated="{{Product.Tab1 | translate |unsafe}}" 
+			  					front-office-edit="Product.Tab1" 
+								recompiler
+								></div>
+							</div>
+						<!-- - EOF - CANNOT CONTROL ION CONTENT'S SCROLL overflow-scroll="true" DYNAMICALLY. USE ng-if TO CHECK IF EDIT MODE IS ACTIVATED - TODO: EDIT MODE SHOULD BE A SERVICE	 -->
+			          </md-content>
+				     </md-tab-body>
+					
+					
+					
+			          
+			        </md-tab>
+					
+			        <md-tab md-on-select="scrollTop(1); onDragLeft();">
+					<md-tab-label>
+					{{'ProductTabTitleDefault2' | translate}}
+					</md-tab-label>
+					
+					<md-tab-body>
+									          <md-content>
+					  
+												<div class="tab_gradient top"></div>
+												<div class="tab_gradient bottom"></div>
+					
+					
+											<!-- CANNOT CONTROL ION CONTENT'S SCROLL overflow-scroll="true" DYNAMICALLY. USE ng-if TO CHECK IF EDIT MODE IS ACTIVATED - TODO: EDIT MODE SHOULD BE A SERVICE	 -->
+					
+												<ion-content ng-show="!editMode" ng-hide="editMode" 
+												class="products_template_tabs_container" 
+												delegate-handle="tab_target_1" 
+												scroll="true"
+												>
+													<div id="#tab2" 
+													class="innertabs" 
+													ng-class="{'active': selectedProductTab == 1}" 
+								  					stringid="{{Product.Tab2String_ID}}" 
+								  					stringname="{{Product.Tab2}}" 
+													alreadytranslated="{{Product.Tab2 | translate |unsafe}}" 
+								  					front-office-edit="Product.Tab2" 
+													recompiler
+													></div>
+												</ion-content>
+						
+												<ion-content ng-show="editMode" ng-hide="!editMode"  
+												class="products_template_tabs_container" 
+												delegate-handle="tab_target_1" 
+												overflow-scroll="true"	
+												scroll="true"
+												>
+													<div id="#tab2" 
+													class="innertabs" 
+													ng-class="{'active': selectedProductTab == 1}" 
+								  					stringid="{{Product.Tab2String_ID}}" 
+								  					stringname="{{Product.Tab2}}" 
+													alreadytranslated="{{Product.Tab2 | translate |unsafe}}" 
+								  					front-office-edit="Product.Tab2" 
+													recompiler
+													></div>
+												</ion-content>
+										<!-- - EOF - CANNOT CONTROL ION CONTENT'S SCROLL overflow-scroll="true" DYNAMICALLY. USE ng-if TO CHECK IF EDIT MODE IS ACTIVATED - TODO: EDIT MODE SHOULD BE A SERVICE	 -->
+					  
+						<!-- COMMENTED_OUT
+									            <h1 class="md-display-2">Tab Two</h1>
+									            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+									            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+									            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+						- EOF - COMMENTED_OUT -->
+
+						
+									          </md-content>
+									        </md-tab>
+					
+									      </md-tabs>
+									    </md-content>
+					</md-tab-body>
+			          
+				
+				
+				
+			</div>
+			
+		</md-content>
+		<!-- - EOF - 2ND HALF OF THE SCREEN -->
+	</div>
+
+
+
+
+
+<!-- BELOW IS ABSOLUTE POSITIONED -->
+	
+	
+	
+	<!-- PRODUCT SIDE PANEL - PROCÉDURES -->
+		<div class="product_side_panel">
+			<ion-content scroll="false">
+			<h2>Outils</h2>
+			
+			
+			<!-- PRODUCT WIDGETS (SALESCHANNELS) -->
+			<div class="price_widget" ng-repeat="Productwidget in Productwidgets">
+				
+				<div class="product_option" 
+				>
+					<div 
+					stringid="{{::Productwidget.ShortDescriptionString_ID}}" 
+					stringname="{{::Productwidget.ShortDescription}}" 
+					front-office-edit="Productwidget.ShortDescription" 
+					string-compiler
+					></div>
+				</div>
+				
+				<div layout="row">
+					
+					<a href="#">
+					<div flex class="product_option_icon {{Productwidget.SaleschannelIcon}}"></div>
+					</a>
+					
+					<div flex="90" class="price_notabene product_option_notabene" 
+					stringid="{{::Productwidget.FullDescriptionString_ID}}" 
+					stringname="{{::Productwidget.FullDescription}}" 
+					front-office-edit="Productwidget.FullDescription" 
+					string-compiler
+					></div>
+				</div>
+				
+			</div>
+			<!-- - EOF - PRODUCT WIDGETS (SALESCHANNELS) -->
+			
+			
+<!-- COMMENTED_OUT
+				hello FIRST<br>
+				hello<br>
+				hello<br>
+				hello<br>
+				hello<br>
+				hello<br>
+				hello<br>
+				hello<br>
+				hello<br>
+				hello LAST<br>
+- EOF - COMMENTED_OUT -->
+				
+			</ion-content>
+		</div>
+	<!-- - EOF - PRODUCT SIDE PANEL - PROCÉDURES -->
+	
+	
+	
+	
+	<!-- FAB BUTTON TO REVEAL 'PROCÉDURES' COLUMN -->
+		<div class="product_side_panel_trigger">
+			
+			<md-button 
+			class="md-fab md-mini" 
+			on-tap="toogleProductSidePanel()"
+			aria-label="emptyString"
+			>
+				<md-icon class="{{trigger_icon}}"></md-icon>
+			</md-button>
+			
+<!-- COMMENTED_OUT
+			     <md-icon class="ion-information"></md-icon>
+- EOF - COMMENTED_OUT -->
+				 
+<!-- COMMENTED_OUT
+				 <ng-md-icon icon="info" size="48" style="fill: #90A4AE" on-tap="toogleProductSidePanel()"></ng-md-icon> 
+- EOF - COMMENTED_OUT -->
+
+		</div>
+	<!-- - EOF - FAB BUTTON TO REVEAL 'PROCÉDURES' COLUMN -->
+	
+	
+	<div class="demo">
+	<div class="bottom_nav">
+	
+		<md-button 
+		class="md-icon-button" 
+		ng-class="{'md-primary': editMode === false, 'md-accent': editMode === true}" 
+		aria-label="emptyString" 
+		on-tap="toggleEditMode()">
+			<md-tooltip>
+			    Éditer
+			</md-tooltip>
+		    <md-icon ng-class="{'ion-locked': editMode === false, 'ion-edit': editMode === true}"></md-icon>
+		</md-button>
+	
+	</div>
+	</div>
+	
+<!-- - EOF - BELOW IS ABSOLUTE POSITIONED -->
+
+
+
+	
+
+</ion-content>
+</ion-view>

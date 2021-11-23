@@ -1,0 +1,68 @@
+	// AS OF 20140816 - RESPONSIVE BREAKPOINTS DERIVED FROM BOOTSTRAP, AND SUBJECT TO CHANGE IF WE MIGRATE TO ANOTHER CSS FRAMEWORK
+
+	// SHORTER NAMES, PLEASE
+	// $xxs: $screen-xs-min; // INTENTIONAL
+	// $xs: $screen-xs-min;
+	// $sm: $screen-sm-min;
+	// $md: $screen-md-min;
+	// $lg: $screen-lg-min;
+	// $xl: $screen-xl-min;
+
+
+	// $xxs: ($screen-xxs-min - em(1px)); // INTENTIONAL
+	// $xs: ($screen-xs-min - em(1px));
+	// $sm: ($screen-sm-min - em(1px));
+	// $md: ($screen-md-min - em(1px));
+	// $lg: ($screen-lg-min - em(1px));
+	// $xl: ($screen-xl-min - em(1px));
+
+
+
+					// xxs : "(min-width:1px) and (max-width:" + $xs + ")",
+					// xs  : "(min-width:" + $xs + ") and (max-width:" + $sm + ")",
+					// sm  : "(min-width:" + $sm + ") and (max-width:" + $md + ")",
+					// md  : "(min-width:" + $md + ") and (max-width:" + $lg + ")",	
+					// lg  : "(min-width:" + $lg + ") and (max-width:" + $xl + ")",	
+					// xl  : "(min-width:" + $xl + ") and (max-width:99999px)",	
+
+	$breakpoints:	(
+					xxs : "(min-width:1px) and (max-width:" + $screen-xxs-max + ")",
+					xs  : "(min-width:" + $screen-xs-min + ") and (max-width:" + $screen-xs-max + ")",
+					sm  : "(min-width:" + $screen-sm-min + ") and (max-width:" + $screen-sm-max + ")",
+					md  : "(min-width:" + $screen-md-min + ") and (max-width:" + $screen-md-max + ")",	
+					lg  : "(min-width:" + $screen-lg-min + ") and (max-width:" + $screen-lg-max + ")",	
+					xl  : "(min-width:" + $screen-xl-min + ") and (max-width:99999px)",	
+					);
+
+
+					// xxs : "max-width:" + $xs,
+					// xs  : "max-width:" + $sm,
+					// sm  : "max-width:" + $md,
+					// md  : "max-width:" + $lg,	
+					// lg  : "max-width:" + $xl,	
+					// xl  : "max-width:99999px",	
+
+	$breakpoints_apply_before:	(
+					xxs : "max-width:" + $screen-xxs-max,
+					xs  : "max-width:" + $screen-xs-max,
+					sm  : "max-width:" + $screen-sm-max,
+					md  : "max-width:" + $screen-md-max,	
+					lg  : "max-width:" + $screen-lg-max,	
+					xl  : "max-width:99999px",	
+					);
+
+					// xxs : "min-width:" + $xs,
+					// xs  : "min-width:" + $sm,
+					// sm  : "min-width:" + $md,
+					// md  : "min-width:" + $lg,	
+					// lg  : "min-width:" + $xl,	
+					// xl  : "min-width:99999px",	
+
+	$breakpoints_apply_after:	(
+					xxs : "min-width:" + $screen-xxs-min,
+					xs  : "min-width:" + $screen-sm-min,
+					sm  : "min-width:" + $screen-md-min,
+					md  : "min-width:" + $screen-lg-min,	
+					lg  : "min-width:" + $screen-xl-min,	
+					xl  : "min-width:99999px",	
+					);

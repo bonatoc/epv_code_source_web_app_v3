@@ -1,0 +1,398 @@
+<!-- COMMENTED_OUT
+<ion-view view-title="Products" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>- EOF - COMMENTED_OUT -->
+
+<ion-view view-title="Products">
+<ion-content class="padding page_content products_template" scroll="false">
+
+
+			
+<!-- COMMENTED_OUT
+			<div layout="row" class="row-up">
+			  <div flex  style="background:orange";>
+			    [flex]
+			  </div>
+			  <div flex  style="background:red";>
+			    [flex]
+			  </div>
+			</div>
+- EOF - COMMENTED_OUT -->
+
+
+
+
+
+			
+	
+	<div flex layout="row" class="row-single">
+	 	<md-content flex="25" style="
+		color:black; 
+		width:26%;
+		max-width:26%;
+		min-width:26%;
+		">
+		
+						<figure>
+							<div id="CSS3Slideshow">
+								<img data-ng-repeat="counter in [1,2,3,4]" class="img{{::counter}}" ng-src="img/product-sliders/{{::selectedProductID}}/{{::counter}}.jpg">
+								
+<!-- PRELOADING OF ASSETS - TODO : WEBWORKER OR LAZYLOAD
+								<div ng-if="counter > 1" style="display:none; background-image:url(img/product-sliders/{{::nextPageID}}/{{::counter}}.jpg)"></div>
+								<div ng-if="counter > 1" style="display:none; background-image:url(img/product-sliders/{{::previousPageID}}/{{::counter}}.jpg)"></div>
+- EOF - PRELOADING OF ASSETS - TODO : WEBWORKER OR LAZYLOAD -->
+								
+							</div>
+						</figure>
+		</md-content>
+		
+		
+		
+		
+	 	<md-content flex="75" style="
+		color:black; 
+		/* padding-top:1.825rem; */
+		padding-top: 2rem; 
+		box-shadow:-3px 8px 17px rgba(0, 0, 0, 0.32);
+		/* padding-bottom:7rem; */
+		height:90vh;
+		/* background:red; */
+		width:74%;
+		max-width:74%;
+		min-width:74%;
+		
+		" class="md-whiteframe-z2">
+		
+		
+			<md-content class="md_top_toolbar_container" ng-init="selectedProductTab=0" style="overflow:hidden;">
+			    <md-toolbar>
+			      <div class="md-toolbar-tools">
+			        <h3
+  					ng-bind-html="Product.Product | translate | removebr"
+  					front-office-edit="Product.Product" 
+  					ng-attr-stringid="{{Product.ProductString_ID}}" 
+  					ng-attr-stringname="{{Product.Product}}">
+			        </h3>
+			        <span flex></span>
+			        <md-button class="md-icon-button" aria-label="Favorite" ng-click="selectedProductTab=0; scrollTop(0);" ng-class="{'md-activated': selectedProductTab == 0}">
+<!-- COMMENTED_OUT
+			          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+- EOF - COMMENTED_OUT -->
+					offre
+			        </md-button>
+			        <md-button class="md-icon-button" aria-label="More" ng-click="selectedProductTab=1; scrollTop(1);" ng-class="{'md-activated': selectedProductTab == 1}">
+<!-- COMMENTED_OUT
+			          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+- EOF - COMMENTED_OUT -->
+					modalités 
+			        </md-button>
+			      </div>
+			    </md-toolbar>
+			</md-content>
+			
+			
+			
+<!-- COMMENTED_OUT
+			<md-content style="
+			padding-left: 3rem;
+	    	padding-right: 3rem;
+			">
+	        <h4 style="
+			font-size: 1.26rem;
+			font-family: 'minionpro';
+			" ng-bind-html="Product.ShortDescription | translate"
+			front-office-edit="Product.ShortDescription" 
+			ng-attr-stringid="{{Product.ShortDescriptionString_ID}}" 
+			ng-attr-stringname="{{Product.ShortDescription}}" 
+			  ></h4>
+  			</md-content>
+- EOF - COMMENTED_OUT -->
+			  
+		
+
+		
+		
+<!-- COMMENTED_OUT
+		overflow-scroll="true" 
+		FOR ONLINE EDITING (CKEDITOR CAN'T PROPERLY FOCUS ON THE CONTENTEDITABLE AREA, WHEN INSIDE ION-CONTENT WITH SCROLL SET TO TRUE (DEFAULT) )
+- EOF - COMMENTED_OUT -->		
+		
+		
+		<!-- TODO: THESE SHOULD BE ROUTES, SO APRODUCT PAGE CAN BE BOOKMARKED ON A SPECIFIC TAB
+		- EOF - TODO: THESE SHOULD BE ROUTES, SO APRODUCT PAGE CAN BE BOOKMARKED ON A SPECIFIC TAB
+			ng-if="selectedProductTab == 1"
+			 -->
+			
+			
+			
+			
+			
+			
+			
+		<!-- TAB 1 -->
+		<md-content 
+		layout="row" 
+		style="
+		height:85%; 
+		position:relative;
+		" 
+		ng-show="selectedProductTab == 0" 
+		>
+		
+			<!-- LEFT COLUMN -->
+			<div flex="75" style="
+			position:relative;
+			width:77.3%;
+			max-width:77.3%;
+			min-width:77.3%;
+			">
+				
+				<div class="tab_gradient top"></div>
+				<div class="tab_gradient bottom"></div>
+				
+				<ion-content 
+				class="products_template_tabs_container" 
+				scroll="true" 
+				delegate-handle="tab_target_0"
+				>
+					<div id="#tab1" 
+					class="innertabs" 
+					ng-class="{'active': selectedProductTab == 0}" 
+  					ng-bind-html="Product.Tab1 | translate | unsafe"
+  					front-office-edit="Product.Tab1" 
+  					ng-attr-stringid="{{Product.Tab1String_ID}}" 
+  					ng-attr-stringname="{{Product.Tab1}}"
+					></div>
+					
+				</ion-content>
+				
+			</div>
+			<!-- - EOF - LEFT COLUMN -->
+			
+			
+			<!-- RIGHT COLUMN -->
+			<div flex="25" style="
+			position:relative;
+			width:22.7%;
+			max-width: 22.7%;
+			min-width:22.7%;
+			">
+				
+				<div class="tab_gradient top"></div>
+				<div class="tab_gradient bottom"></div>
+				
+				<ion-content class="products_template_tabs_container" scroll="true" style="
+				float: right;
+				  background: rgba(65, 95, 95, 0.02);
+				  box-shadow: inset 3px 0px 5px rgba(0,0,0,0.12);
+				">
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+				</ion-content>
+			</div>
+			<!-- - EOF - RIGHT COLUMN -->
+			
+		</md-content>
+		<!-- - EOF - TAB 1 -->
+			
+			
+			
+			
+			
+			
+			
+			
+		<!-- TAB 2 -->
+		<md-content 
+		layout="row" 
+		style="
+		height:85%; 
+		position:relative;
+		" 
+		ng-show="selectedProductTab == 1" 
+		>
+		
+			<!-- LEFT COLUMN -->
+			<div flex="75" style="position:relative;">
+				
+				<div class="tab_gradient top"></div>
+				<div class="tab_gradient bottom"></div>
+				
+				<ion-content 
+				class="products_template_tabs_container" 
+				scroll="true" 
+				delegate-handle="tab_target_1"
+				style="margin-right:2.5rem;"
+				>
+					<div id="#tab2" 
+					class="innertabs" 
+					ng-class="{'active': selectedProductTab == 1}" 
+  					ng-bind-html="Product.Tab2 | translate | unsafe"
+  					front-office-edit="Product.Tab2" 
+  					ng-attr-stringid="{{Product.Tab2String_ID}}" 
+  					ng-attr-stringname="{{Product.Tab2}}"
+					></div>
+					
+				</ion-content>
+				
+			</div>
+			<!-- - EOF - LEFT COLUMN -->
+			
+			
+			<!-- RIGHT COLUMN -->
+			<div flex="25" style="position:relative;">
+				
+				<div class="tab_gradient top"></div>
+				<div class="tab_gradient bottom"></div>
+				
+				<ion-content class="products_template_tabs_container" scroll="true" style="
+				float: right;
+				">
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+					test
+					<br>
+				</ion-content>
+			</div>
+			<!-- - EOF - RIGHT COLUMN -->
+			
+		</md-content>
+		<!-- - EOF - TAB 2 -->
+			
+			
+		
+		
+			
+			
+		</md-content>
+	</div>
+
+
+
+				<div class="demo">
+				<div class="bottom_nav">
+				
+					<md-button class="md-icon-button" ng-class="{'md-primary': editMode === false, 'md-accent': editMode === true}" aria-label="Edit" on-tap="toggleEditMode()">
+						<md-tooltip>
+						          Éditer
+						</md-tooltip>
+					    <md-icon ng-class="{'ion-locked': editMode === false, 'ion-edit': editMode === true}"></md-icon>
+					</md-button>
+				
+				
+				</div>
+				</div>
+
+	
+
+</ion-content>
+</ion-view>

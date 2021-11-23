@@ -1,0 +1,220 @@
+<ion-view view-title="Productfamilies" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>
+<ion-content class="padding" scroll="false">
+<div class="page_content product_family_page">
+	  
+
+	
+<div class="row row-up">
+
+    <div class="col col-67">
+  	<ion-content 
+	class="col-1 ion-content-height gridListdemoBasicUsage" 
+	scroll="false">
+		
+		<md-content>	
+			
+			<md-grid-list
+	        md-cols-sm="1" 
+			md-cols-md="1" 
+			md-cols-gt-md="2"
+			md-cols-lg="2"
+			md-cols-gt-lg="{{md_cols_gt_lg}}"
+
+			md-row-height-sm="fit"
+			md-row-height-md="fit"
+			md-row-height-gt-md="fit"
+			md-row-height-lg="fit"
+			md-row-height-gt-lg="fit"
+		
+			md-gutter="0px"
+			>
+
+				<md-grid-tile 
+				class="gray product_card" 
+				ng-repeat="product in Products | object2Array | orderBy:'Order'" 
+				style="background-image:url(img/products/cards/{{product.id}}.jpg);" 
+				id="tabs2">
+				
+<!-- IFRAME YOUTUBE VIDEOS
+				
+					YOUTUBE VIDEOS HAVE TO BE POSITIONED IN IFRAMES TO AVOID DISPLAYING OF ADS ON THE BOTTOM, AND OTHER "USELESS" STUFF FOR PURELY DECORATIVE VIDEOS. A DECORATIVE VIDEO IS AUTOMATICALLY PLAYED, PLAYS IN LOOP, AND CANNOT BE STOPPED.
+					THE HACK HERE IS TO :
+					1 - PUT IFRAME IN <ion-content>
+					2 - DISABLE SCROLL ON ion-content -> scroll="false"	
+				
+					THIS IS TO AVOID IFRAME TO BE SCROLLABLE, SINCE THE IFRAME OR VIDEO SIZE IS GOING TO EXCEED THE CONTAINER'S SIZE.
+				
+					BUT BY DISABLING THE SCROLL ON ion-content, THE EVENT IS PROBABLY PREVENTED TO BUBBLED UP TO col-2 (SEE ABOVE)
+-->
+				
+				
+				<div class="card_overlay">
+						<h2
+						class="centered"
+						ng-bind-html="product.Product | translate"
+						front-office-edit="product.Product" 
+						ng-attr-stringid="{{product.ProductString_ID}}" 
+						ng-attr-stringname="{{product.Product}}" 
+						></h2>
+							
+						<div class="short_text centered"
+						ng-bind-html="product.ShortDescription | translate"
+						></div>
+							
+				</div>
+				
+				
+					<ion-content 
+						scroll="false" 
+						class="iframevideocontainer">
+					
+						<iframe 
+						width="150%" 
+						height="150%" 
+						frameborder="0" 
+						title="YouTube video player" 
+						type="text/html" 
+						src="{{product.youtube_video}}" 
+						id="frame{{$index}}" 
+						style="
+						position:absolute; 
+						top:-20%; 
+						left:-25%;
+						transition: opacity .4s ease-in-out;
+						-moz-transition: opacity .4s ease-in-out;
+						-webkit-transition: opacity .4s ease-in-out;
+						"></iframe>
+					
+					</ion-content>
+				
+				
+					<md-grid-tile-footer>
+				
+							<h3 
+							ng-bind-html="product.Product | translate"
+							front-office-edit="product.Product" 
+							ng-attr-stringid="{{product.ProductString_ID}}" 
+							ng-attr-stringname="{{product.Product}}" 
+							></h3>
+						
+<!-- COMMENTED_OUT
+							<div class="short_text"
+							ng-bind-html="'blablalba'"></div>
+- EOF - COMMENTED_OUT -->
+				
+					</md-grid-tile-footer>
+				
+				</md-grid-tile>
+
+			</md-grid-list>
+		</md-content>	
+			
+  	</ion-content>
+  	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+  	<div class="col col-33">
+			
+<!-- DO NOT DELETE : EXAMPLE OF STICKY INNER TOPNAV, FOR SECONDARY ACTIONS
+  			<div style="
+  			float:right;
+  			background:black;
+  			height:2rem;
+  			width:2rem;
+  			padding:0;
+  			margin:0;
+  			z-index:300;
+  			">
+  				 2b
+  			</div>
+- EOF - O NOT DELETE : EXAMPLE OF STICKY INNER TOPNAV, FOR SECONDARY ACTIONS -->
+
+		<ion-content class="col-2 ion-content-height flex-container__with-child-centered" scroll="false">
+			
+  				<article>
+				
+<!-- KEEP THIS
+  					<a ng-href="#/tab/dash"  nav-direction="forward" nav-transition="ios">
+- EOF - KEEP THIS -->
+					<h4
+					ng-bind-html="section.title | translate" 
+					front-office-edit="section.title" 
+					ng-attr-stringid="{{section.title_stringid}}" 
+					ng-attr-stringname="{{section.title}}" 
+					></h4>
+<!-- KEEP THIS
+					</a>
+- EOF - KEEP THIS -->
+  					
+					<p
+					ng-bind-html="section.text | translate" 
+					front-office-edit="section.text"
+					></p>
+
+<!-- COMMENTED_OUT
+					<button ng-click="toggleEditMode()">{{editMode}}</button>
+					<button on-tap="iframesStatus = !iframesStatus; hide_iframes(iframesStatus);">videos {{iframesStatus}}</button>
+- EOF - COMMENTED_OUT -->
+					
+					
+					<div class="demo">
+					<div class="bottom_nav">
+						
+						<md-button class="md-fab" ng-class="{'md-warn': editMode === false, 'md-accent': editMode === true}" aria-label="Edit"  on-tap="toggleEditMode()">
+							<md-tooltip>
+							          Éditer
+							</md-tooltip>
+						    <md-icon ng-class="{'ion-locked': editMode === false, 'ion-edit': editMode === true}"></md-icon>
+						</md-button>
+						
+						<md-button class="md-fab md-accent" ng-class="{'md-accent': iframesStatus === false, 'md-warn': iframesStatus === true}" aria-label="Edit"  on-tap="iframesStatus = !iframesStatus; hide_iframes(iframesStatus);">
+							<md-tooltip>
+							          Vidéos
+							</md-tooltip>
+						    <md-icon ng-class="{'ion-play': iframesStatus === false, 'ion-stop': iframesStatus === true}"></md-icon>
+						</md-button>
+						
+					</div>
+					</div>
+
+					
+					
+<!-- COMMENTED_OUT
+					 - {{isIOS}
+- EOF - COMMENTED_OUT -->
+					
+  				</article>
+
+
+  <!-- THESE <BR> ARE MANDATORY FOR THE MOMENT. TODO: TOPNAV, CONTENT AND BOTTOMNAV SHOULD USE A FLEX SYSTEM -->
+  				<br><br>
+  <!-- - EOF - THESE <BR> ARE MANDATORY FOR THE MOMENT. TODO: TOPNAV, CONTENT AND BOTTOMNAV SHOULD USE A FLEX SYSTEM -->			
+				
+  		</ion-content>
+  	</div>
+	
+	
+	
+	
+  	</div>
+
+
+</div>
+</ion-content>
+</ion-view>

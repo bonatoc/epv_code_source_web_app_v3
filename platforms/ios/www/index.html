@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	
+    <title>TITLE</title>
+
+<!-- CSS CALLS -->
+	
+	
+    <!-- ANGULAR MATERIAL
+	https://material.angularjs.org/
+	https://github.com/angular/material
+	-->
+<!-- COMMENTED_OUT
+    <link href="lib/angular-material_8-3/angular-material.css" rel="stylesheet">
+- EOF - COMMENTED_OUT -->
+<!-- COMMENTED_OUT
+	<link rel="stylesheet" href="lib/angular-material_master/angular-material.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+- EOF - COMMENTED_OUT -->
+	<link rel="stylesheet" href="lib/angular-material_master/angular-material.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+    <!-- COMPILED CSS OUTPUT -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+	
+<!-- - EOF - CSS CALLS -->
+
+
+<!-- COMMENTED_OUT
+    <link href="lib/angular-material/angular-material.min.css" rel="stylesheet">
+- EOF - COMMENTED_OUT -->
+<!-- COMMENTED_OUT 
+<link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+- EOF - COMMENTED_OUT -->
+<!-- COMMENTED_OUT 
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
+- EOF - COMMENTED_OUT -->
+	
+	
+	<!-- DOWNLOAD IT AND MAKE THE CALL LOCALLY
+	- EOF - DOWNLOAD IT AND MAKE THE CALL LOCALLY -->
+<!-- COMMENTED_OUT
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+- EOF - COMMENTED_OUT -->
+	
+	<script src="lib/jquery/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	
+	<!-- GOOGLE MAPS (NGMAP) -->
+<!-- COMMENTED_OUT
+	<script src="//maps.google.com/maps/api/js"></script>
+- EOF - COMMENTED_OUT -->
+	<!-- - EOF - GOOGLE MAPS (NGMAP) -->
+	
+	
+	
+<!-- POST JQUERY, PRE JQUERY PLUGINS, PRE ANGULARJS, VANILLA JS -->
+	
+	<!-- LO-DASH 
+		http://lodash.com/docs
+		-->
+			<script src="lib/lo_dash/lodash.min.js"></script>
+	<!--  - EOF - LO-DASH -->
+	<!-- VIEWPORT SIZES DETECTION
+		https://github.com/ryanve/verge
+	-->
+		<script src="lib/verge/verge.min.js"></script>
+		<script src="lib/utilities/viewport_detection.js" type="text/javascript" charset="utf-8"></script>
+		
+    	<script src="lib/utilities/utilities.js"></script>
+	
+	
+	<!-- CKEDITOR
+		http://ckeditor.com
+		TODO : CKEDITOR IS WAAAY TOO HEAVY : ONLY LOAD WHEN USER IS LOGGED AS ADMIN IN INTRANET
+		TODO : ALREADY MINIFIED - CHANGE NAME ACCORDINGLY, 
+		TODO : BUILD A VERSION WITH ONLY REQUIRED BUTTONS AND OPTIONS
+	-->
+		<script src="lib/ckeditor/ckeditor.js"></script>
+	<!-- - EOF - CKEDITOR -->
+
+
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+
+<!-- ANGULAR MATERIAL -->
+
+	<script src="lib/angular-aria/angular-aria.min.js"></script>
+	<!-- ANGULAR ANIMATE IS A REQUIREMENT OF ANGULAR-MATERIAL, BUT IS ALREADY INCLUDED WITH lib/ionic/ionic.bundle.js -->
+<!-- COMMENTED_OUT
+	<script src="lib/angular-material_8-3/angular-material.js"></script>
+- EOF - COMMENTED_OUT -->
+	<script src="lib/angular-material_master/angular-material.js" type="text/javascript" charset="utf-8"></script>
+
+<!--  - EOF - ANGULAR MATERIAL -->
+
+
+
+<!-- ANGULAR CORE MODULES -->
+	<script src="lib/angular-cookies/angular-cookies.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- - EOF - ANGULAR CORE MODULES -->
+
+
+
+<!-- ANGULAR TRANSLATE 
+	TODO: MINIFY INTO ONE FILE
+	-->
+	<script src="lib/angular-translate/angular-translate.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-translate/angular-translate-loader-static-files.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-translate/angular-translate-storage-cookie.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-translate/angular-translate-storage-local.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- - EOF - ANGULAR TRANSLATE -->
+
+
+<!-- GOOGLE MAPS (NGMAP) 
+	https://github.com/allenhwkim/angularjs-google-maps
+	-->
+	<script src="//maps.google.com/maps/api/js"></script>
+	
+<!-- COMMENTED_OUT
+	<script src="http://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>	
+- EOF - COMMENTED_OUT -->
+	<script src="lib/ngmap/ng-map.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- - EOF - GOOGLE MAPS (NGMAP) -->
+	
+	
+<!-- ANGULAR YOUTUBE -->
+	<script src="https://www.youtube.com/iframe_api"></script>
+<!-- COMMENTED_OUT
+	<script src="lib/angular-youtube-mb/angular-youtube-embed.min.js" type="text/javascript" charset="utf-8"></script>
+- EOF - COMMENTED_OUT -->
+	<script src="lib/angular-youtube-mb/angular-youtube-embed.js" type="text/javascript" charset="utf-8"></script>
+<!-- - EOF - ANGULAR YOUTUBE -->
+
+
+
+<!-- ANGULAR-MATERIAL-ICONS -->
+<!-- COMMENTED_OUT
+	<script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script> 
+	<script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script> 
+- EOF - COMMENTED_OUT -->
+	<script src="lib/angular-material-icons/angular-material-icons.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-material-icons/svg-morpheus.js" type="text/javascript" charset="utf-8"></script>
+<!-- - EOF - ANGULAR-MATERIAL-ICONS -->
+
+
+
+<!-- APP'S SCRIPTS -->
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/filters.js"></script>
+
+<!-- - EOF - APP'S SCRIPTS -->
+
+	
+	
+	
+	
+	
+	<!-- APP'S DATA -->
+	
+	    <script src="data/main_array.js"></script>
+<!-- COMMENTED_OUT
+	    <script src="data/en.js"></script>
+	    <script src="data/fr.js"></script>
+	    <script src="data/es.js"></script>
+- EOF - COMMENTED_OUT -->
+		
+	
+	<!-- - EOF - APP'S DATA -->
+	
+
+  </head>
+  <body ng-app="starter" class="platform-ios platform-cordova platform-webview">
+	  <section layout="row" flex>
+		  
+		  
+	  
+	  
+	  
+	  
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+
+
+
+
+
+
+
+<!-- TOPNAV -->
+		
+<div class="topnav_container" ng-controller="TopnavController">
+	
+	<!-- TOPNAV -->
+	<div class="topnav md-whiteframe-z1">
+
+		<div class="row row-center topnav-row">
+		
+		
+		  <div class="col col-center topnav-column-logo" ng-click="setSelectedTopnavIndex(0)" ui-sref="tab.dash">
+		  	<img src="img/logo/logo-chateau-de-versailles.jpg">
+		  </div>
+	  
+	  
+		  <div class="col col-center topnav-column-main-nav">
+	<!-- COMMENTED_OUT
+	  
+		   ...ng-controller="TopnavTabsController">
+	  
+		  <md-tabs md-selected="selectedIndex" flex>
+		      <md-tab ng-repeat="tab in tabs"
+		              ng-disabled="tab.disabled"
+		              label="{{tab.title}}">
+
+		      <div class="demo-tab tab{{$index%4}}" layout="column" layout-align="space-around center">
+		          <div ng-bind="tab.content"></div>
+		        </div>
+
+		      </md-tab>
+		    </md-tabs>
+	- EOF - COMMENTED_OUT -->
+	  
+<!-- COMMENTED_OUT
+				<ul>
+			  		<a ng-href="{{tab.url}}"  nav-direction="forward" nav-transition="ios" ng-repeat="tab in tabs" >
+						<li ng-bind-html="tab.title" class="md-primary md-hue-1"></li>  
+					</a>
+				</ul>
+- EOF - COMMENTED_OUT -->
+		
+<!-- COMMENTED_OUT
+	  <md-tabs md-stretch-tabs 
+	           md-selected="selectedSubnavIndex" class="md-primary md-hue-1">
+	     <md-tab label="{{subnav.Productfamily | translate}}" ng-repeat="subnav in subnavTabs"></md-tab> 
+	  </md-tabs>
+- EOF - COMMENTED_OUT -->
+		
+		
+<!-- COMMENTED_OUT
+		<div style="
+	    width: 50%;
+	    -webkit-transform: translate3d(50%,0,0);
+		transform: translate3d(50%,0,0);
+		">
+- EOF - COMMENTED_OUT -->
+		
+<!-- COMMENTED_OUT
+		subnavFolded : {{subnavFolded}}
+- EOF - COMMENTED_OUT -->
+<!-- COMMENTED_OUT
+		md-no-bar
+- EOF - COMMENTED_OUT -->
+		
+	  	  <md-tabs md-center-tabs md-no-ink md-stretch-tabs="always" md-selected="selectedTopnavIndex">
+				
+				<md-tab ng-repeat="topnavTab in tabs" >
+					<md-tab-label>
+					<!-- COMMENTED_OUT
+						{{latestSelectedSubnavIndex}}
+					- EOF - COMMENTED_OUT -->
+					
+					<a href="#{{topnavTab.url}}{{latestSelectedSubnavIndex[$index]}}">{{topnavTab.title | translate}}</a>
+					</md-tab-label>
+				</md-tab> 
+				
+	  	  </md-tabs>
+		  
+<!-- COMMENTED_OUT
+		  selectedTopnavIndex : {{selectedTopnavIndex}}
+- EOF - COMMENTED_OUT -->
+		  
+		<!-- COMMENTED_OUT
+    		  	</div>
+		- EOF - COMMENTED_OUT -->
+		  
+	  
+		
+		  	</div>
+	  
+	  
+		  	<div class="col col-center topnav-column-lang">
+				
+					<ng-md-icon id="burgerIcon" icon="{{iconburger}}" size="{{icon_size}}" style="fill: black" on-tap="toggleRight()" options='{"duration": 375, "rotation":"none"}'></ng-md-icon>
+		  
+			</div>
+		</div>
+	</div>
+	<!-- - EOF - TOPNAV -->
+
+
+
+
+
+
+
+	<!-- SUBNAV -->
+	
+<!-- COMMENTED_OUT
+	style="top:{{0.71 + ($index*4)}}rem;"
+- EOF - COMMENTED_OUT -->
+	
+		<div class="subnav md-whiteframe-z1 subnav_{{fetchedSubnavKey}}" ng-class="{'folded': subnavFolded[fetchedSubnavKey] === true}" ng-repeat="(fetchedSubnavKey, fetchedSubnav) in subnavs"  ng-if="$index > 0">
+	<!-- COMMENTED_OUT
+			<div style="display:flex; justify-content:center;" >
+	- EOF - COMMENTED_OUT -->
+
+	<!-- COMMENTED_OUT
+			  <md-tabs md-stretch-tabs 
+			           md-selected="selectedIndex" style="max-width:50%;" class="md-primary md-hue-2">
+		
+			on-tap="goToState('#/tab/productfamilies/prodFamID/'+subnav.id);"
+		
+	- EOF - COMMENTED_OUT -->
+<!-- DEBUG
+			index : {{$index}}
+		md-selected="selectedSubnavIndex"  
+- EOF - DEBUG -->
+			  <md-tabs md-stretch-tabs="always" 
+			           md-selected="selectedSubnavIndex[fetchedSubnavKey]" md-theme="subnav_{{fetchedSubnavKey}}"
+					   >
+			     <md-tab ng-repeat="subnavItem in fetchedSubnav | orderBy:'Order'">
+			 		<md-tab-label>
+					<a href="#{{subnavItem.url}}">{{subnavItem.stringToDisplay | translate}}</a>
+				</md-tab-label>
+			 </md-tab>
+			  </md-tabs>
+
+		</div>
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+</div>
+
+<!-- - EOF - TOPNAV -->
+
+
+
+
+
+
+
+
+
+<!-- IONIC ROOT VIEW/STATE -->
+    <ion-nav-view></ion-nav-view>
+<!-- - EOF - IONIC ROOT VIEW/STATE -->
+	
+	
+	
+	
+	<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+	<ion-content scroll="true" class="force-no-header">
+	
+	
+	
+<!-- COMMENTED_OUT
+	      <md-toolbar class="md-theme-light">
+	        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+	      </md-toolbar>
+- EOF - COMMENTED_OUT -->
+<!-- COMMENTED_OUT
+	      <md-content ng-controller="RightCtrl" class="md-padding">
+	        <md-button on-tap="close()" class="md-primary">
+	          Close Sidenav Right
+	        </md-button>
+	      </md-content>
+- EOF - COMMENTED_OUT -->
+		  
+		  
+		  
+		  
+		  			  				<!-- TRANSLATE CONTROLLER (SWITCH LANGUAGE) -->
+
+		  			  				<div class="translate" ng-controller="TranslateController">
+<!-- COMMENTED_OUT
+		  								<div>
+		  									{{getCurrentLanguage()}}
+										
+										popover="{{'str_FR' | translate}}" popover-trigger="mouseenter" popover-placement="bottom" 
+										
+		  								</div>
+- EOF - COMMENTED_OUT -->
+										<md-subheader class="md-no-sticky md-whiteframe-z1" >{{'str_Language' | translate}}</md-subheader>
+										<ul class="list" >
+										    <li class="item" ng-repeat="language in appLocalesArray" ng-class="{'active':isCurrentLanguage(language)}" on-tap="changeLanguage(language);">
+												
+												<div layout="row" layout-align="center center">
+													<div flex="20">
+														<img ng-src="img/icons/flags/{{language}}.png" ng-class="{'active':isCurrentLanguage(language)}" >
+													</div>
+													<div flex="80">
+										      {{'str_'+language.toUpperCase() | translate | capitalizeFirstLetter}}
+													</div>
+													
+												</div>
+												
+										    </li>
+										</ul>
+
+					
+					
+		  	<!-- TURNED OFF - "MY ACCOUNT" BUTTON 
+		  					<button type="button" class="btn btn-default btn-sm" on-tap="setTemplateForPanel3('account')">test</button>
+		  	- EOF - TURNED OFF - "MY ACCOUNT" BUTTON -->
+
+
+		  			  				</div>
+
+		  			  				<!--  - EOF - TRANSLATE CONTROLLER (SWITCH LANGUAGE) -->
+		  
+	</ion-content>
+	</md-sidenav>
+	
+	
+	
+	
+	    
+
+	</section>
+  </body>
+</html>

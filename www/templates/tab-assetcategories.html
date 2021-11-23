@@ -1,0 +1,311 @@
+<!-- COMMENTED_OUT
+<ion-view view-title="Services" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>- EOF - COMMENTED_OUT -->
+
+<ion-view view-title="Medias" >
+<ion-content class="padding" scroll="false" >
+
+<div class="page_content service_page asset_page">
+	
+<div 
+class="row row-up" 
+layout="row" 
+layout-align="{{layout.columns_wrapper.layout_align}}">
+
+<div flex="66" 
+layout="row" 
+layout-align="start start" 
+class="md-whiteframe-z2" 
+style="background: none;"
+>
+
+
+<!-- SIDENAV -->
+
+<div 
+flex="{{layout.left_column.flex}}" 
+ng-if="selectedAssetCategoryID < 4"
+style="
+transform: translate3d(-100%);
+"  
+>
+
+<ion-content 
+flex="{{layout.left_column.flex}}" 
+class="service_list_wrapper asset_list_wrapper no_translate" 
+ng-class="{'shadow': selectedAssetCategoryID < 3}"
+style="
+">
+
+	<md-content class="service_list"> 
+		<ul class="list">
+		    <li class="item" 
+			ng-repeat="Assetgallery in Assetgalleries | object2Array | orderBy:'Order' track by $index" 
+			ng-class="{'active': selectedAssetGalleryID == Assetgallery.id}"  
+			ng-click="setSelectedAssetGalleryID(Assetgallery.id);0"
+			ng-show="Assetgallery.id"
+			>
+				<!-- TODO: WHY DO WE HAVE "GHOSTS" OBJECTS, WITHOUT IDs ? INVESTIGATE AND GET RID OF THE ng-show
+				- EOF - TODO: WHY DO WE HAVE "GHOSTS" OBJECTS, WITHOUT IDs ? INVESTIGATE AND GET RID OF THE ng-show -->
+				
+				<div layout="row" layout-align="center center">
+					<div flex>
+		      		  {{Assetgallery.Assetgallery | translate}}<i ng-if="selectedAssetGalleryID == Assetgallery.id" class="icon ion-chevron-right"></i>
+
+<!-- COMMENTED_OUT
+					   - {{Assetgallery.id}} - {{assetGalleryID}} - {{selectedAssetGalleryID}}
+- EOF - COMMENTED_OUT -->
+
+					</div>
+				</div>
+		    </li>
+		</ul>
+	</md-content>
+	
+</ion-content>
+</div>
+	
+<!-- - EOF - SIDENAV -->	
+	
+
+
+<!-- SERVICE DETAIL PAGE -->
+
+		<div flex="{{layout.right_column.flex}}" 
+		layout="row" 
+		layout-align="start stretch"
+		ng-if="selectedAssetGalleryID" 
+		ng-style="layout.right_column.style" 
+		class="asset_container" 
+		ng-class="{'black_bkg': selectedAssetCategoryID == 2, 'white_bkg': (selectedAssetCategoryID == 3 || selectedAssetCategoryID == 4)}"
+		>
+		
+			<!-- SERVICE LEFT COLUMN -->
+			<div flex class="column_center asset_wrapper"
+			layout="column" 
+			style="
+			"
+			>
+			
+			
+				<div flex class="innertabs">
+					
+					
+					<!-- PHOTOS -->
+					<md-content 
+					ng-if="selectedAssetCategoryID == 1">
+					
+						<md-tabs md-selected="mediaSelectedIndex[selectedAssetGalleryID]" md-align-tabs="bottom">
+						      <md-tab id="tab1" 
+							  ng-repeat="asset in assets | orderBy:'Order' track by $index" 
+							  >
+						        <md-tab-label>
+									<div class="asset_thumbnail" style="
+  								  	background-image: url(img/{{asset.AssetDownloadPath}});
+									"></div>
+								</md-tab-label>
+						        <md-tab-body>
+								  <div class="asset_big_image" style="
+								  background-image: url(img/{{asset.AssetDownloadPath}});
+								  ">
+								  	
+								</div>
+						        </md-tab-body>
+						      </md-tab>
+						 </md-tabs>
+
+					</md-content>
+					<!-- - EOF - PHOTOS -->
+					
+					
+					
+					
+					<!-- VIDEOS -->
+					<md-content 
+					ng-if="selectedAssetCategoryID == 2">
+					
+						<md-tabs md-selected="mediaSelectedIndex[selectedAssetGalleryID]" md-align-tabs="bottom">
+						      <md-tab id="tab1" 
+							  ng-repeat="(videoKey, video) in videos | orderBy:'Order' track by $index" 
+							  md-on-select="updateVideoTitle(videoKey);"
+							  >
+						        <md-tab-label>
+									<div class="asset_thumbnail" style="
+  								  	background-image: url({{video.youtube_thumbnail}});
+									"></div>
+								</md-tab-label>
+						        <md-tab-body>
+								
+								  <youtube-video video-id="video.youtube_url"></youtube-video>
+								  
+						        </md-tab-body>
+						      </md-tab>
+						 </md-tabs>
+
+					</md-content>
+					<!-- - EOF - VIDEOS -->
+					
+					
+					
+					
+					<!-- PHOTOS AND VIDEOS -->
+					
+					<div class="title_wrapper" 
+					ng-if="selectedAssetCategoryID == 1 || selectedAssetCategoryID == 2">
+						
+						<div flex layout="column">
+							<div class="service_container">
+								<div flex class="title_container">
+									<!-- TODO: MAKE THIS A FLEX LAYOUT -->
+										<h1>
+											<div
+						  					stringid="{{Assetgalleries[selectedAssetGalleryID]['AssetgalleryString_ID']}}" 
+						  					stringname="{{Assetgalleries[selectedAssetGalleryID]['Assetgallery']}}" 
+						  					front-office-edit="Assetgalleries[selectedAssetGalleryID]['Assetgallery']" 
+											ng-bind-html="Assetgalleries[selectedAssetGalleryID]['Assetgallery'] | translate | removebr"
+											></div>
+										</h1>
+										
+										<!-- TODO: USE figure AND caption HTML5 ELEMENTS INSTEAD -->
+										
+										
+										<!-- PHOTOS -->
+										<div 
+										ng-if="selectedAssetCategoryID == 1"
+										class="asset_caption" 
+					  					stringid="{{assets[mediaSelectedIndex[selectedAssetGalleryID]]['FullDescriptionString_ID']}}" 
+					  					stringname="{{assets[mediaSelectedIndex[selectedAssetGalleryID]]['FullDescription']}}" 
+					  					front-office-edit="assets[mediaSelectedIndex[selectedAssetGalleryID]]['FullDescription']" 
+										ng-bind-html="assets[mediaSelectedIndex[selectedAssetGalleryID]]['FullDescription'] | translate"
+										></div>
+										<!-- - EOF - PHOTOS -->										
+										
+										
+										<!-- VIDEOS ONLY -->
+										<div 
+										class="asset_caption" 
+										ng-if="selectedAssetCategoryID == 2"
+										><B>{{youtube_title}}</B></div>
+										<!-- - EOF - VIDEOS ONLY -->										
+										
+										
+										<!-- PHOTOS ONLY -->
+										<div class="download_widget" 
+										ng-if="selectedAssetCategoryID == 1">
+											{{'str_Download_All' | translate}}
+											<md-button class="md-fab md-mini md-primary" aria-label="Use Android">
+												<i class="icon-arrow-down"></i>
+											</md-button>
+										</div>
+										<!-- - EOF - PHOTOS ONLY -->
+										
+										
+								</div>
+							</div>
+						</div>
+					
+					</div>
+			
+					<!-- - EOF - PHOTOS AND VIDEOS -->
+			
+			
+			
+			<!-- PRESSE -->
+					<div layout="row" 
+					layout-align="center center"
+					ng-if="selectedAssetCategoryID == 3" 
+					>
+						<ion-content scroll="true" flex="100" class=" white_bkg">
+						hello y {{selectedAssetCategoryID}}<br>
+						hello {{selectedAssetCategoryID}}<br>
+						hello {{selectedAssetCategoryID}}<br>
+						hello {{selectedAssetCategoryID}}<br>
+						hello {{selectedAssetCategoryID}}<br>
+						hello {{selectedAssetCategoryID}}<br>
+						</ion-content>
+		
+					</div>
+		<!-- - EOF - PRESSE -->
+			
+			
+			
+					
+					<!-- NUMÉRIQUE -->
+					
+						<div layout="row" 
+						layout-align="center center"
+						ng-if="selectedAssetCategoryID == 4">
+							
+							
+							<ion-content scroll="false" flex="100" class="iframe_container shadow white_bkg" style="
+
+							">
+<!-- COMMENTED_OUT
+							hello {{selectedAssetCategoryID}}
+- EOF - COMMENTED_OUT -->
+<!-- COMMENTED_OUT
+							<input type="button" value="Back" onclick="iframe_1.history.back()">
+- EOF - COMMENTED_OUT -->
+								<iframe 
+								id="iframe_1" 
+								name="iframe_1"
+								src="http://presse.chateauversailles.fr/expositions-au-chateau/"></iframe>
+							
+						</ion-content>
+							
+						</div>
+					
+					<!-- - EOF - NUMÉRIQUE -->
+					
+		
+			</div> 
+
+
+		</div>
+<!-- - EOF - ASSET DETAIL PAGE -->			
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+
+<!-- ABSOLUTE POSITIONED -->
+<!-- COMMENTED_OUT
+	<div class="demo">
+	<div class="bottom_nav">
+	
+		<md-button 
+		class="md-icon-button" 
+		ng-class="{'md-primary': editMode === false, 'md-accent': editMode === true}" 
+		aria-label="emptyString" 
+		on-tap="toggleEditMode()">
+			<md-tooltip>
+			    Éditer
+			</md-tooltip>
+		    <md-icon ng-class="{'ion-locked': editMode === false, 'ion-edit': editMode === true}"></md-icon>
+		</md-button>
+	
+	</div>
+	</div>
+- EOF - COMMENTED_OUT -->
+<!-- - EOF - ABSOLUTE POSITIONED -->
+
+
+
+</ion-content>
+</ion-view>

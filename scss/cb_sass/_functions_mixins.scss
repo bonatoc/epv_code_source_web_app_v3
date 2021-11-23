@@ -1,0 +1,185 @@
+// FUNCTIONS AND MIXINS
+
+
+	// TYPOS, FONTS, ICONS...
+
+	// GOLDEN RATIO LINE HEIGHT CALCULATOR 
+	// TODO : IMPORT FULL FILE -> https://gist.github.com/gregrickaby/5001983
+	// BEWARE, FUNCTION AND MIXIN NAMES HAVE BEEN CHANGED
+
+	$phi: (1 + sqrt(5)) / 2; // 1.61803398874989 or "The Golden Ratio"
+
+
+	@function calculateGoldenRatioLineHeight($font-size,$ContentWidth) {
+		$ratio: sqrt($ContentWidth) / $phi;
+		$line-height: $font-size / $ratio;
+	 	@return $line-height;
+	}
+
+	 
+	@mixin goldenRatioLineHeight($font-size,$ContentWidth,$object-to-render: 'line-height') {
+		// font-size: #{$font-size}px;
+		// $font-size: 14;
+		// $ContentWidth: 320;
+	  	line-height: calculateGoldenRatioLineHeight($font-size,$ContentWidth);
+	}
+	// - EOF - GOLDEN RATIO LINE HEIGHT CALCULATOR
+
+
+	@mixin breakpointsFontsAssignMixin($font-families, $font-sizes, $font-colors: false, $line-heights: false, $body-container-widths: false) {
+		@each $key, $screen-size in $breakpoints {
+			@media #{$screen-size}{
+				
+				$font-family  : map-get($font-families, $key) ;
+				$font-size    : map-get($font-sizes, $key) ;
+
+				font-family: $font-family !important;
+				font-size: $font-size;
+
+				@if $font-colors {
+					$color : map-get($font-colors, $key) ;
+
+					color: $color;
+				}
+
+				@if $line-heights {
+
+					$line-height : map-get($line-heights, $key);
+					line-height: $line-height;
+
+					// @if $body-container-widths {
+					// 	$ContentWidth : map-get($body-container-widths, $key) ;
+					// 	@include goldenRatioLineHeight($font-size, $ContentWidth);
+					// }
+					
+					// @else {
+					// 	$line-height : map-get($line-heights, $key);
+					// 	line-height: $line-height;
+					// }
+				}
+
+			}
+		}
+	}
+
+	// - EOF - TYPOS, FONTS, ICONS...
+
+
+
+
+	// BOXES, CONTAINERS, DIVS...
+
+	@mixin breakpointsBoxesAssignMixin($widths: null, $heights: null, $displays: null) {
+		@each $key, $screen-size in $breakpoints {
+			@media #{$screen-size}{
+				
+				@if $widths {
+					$width : map-get($widths, $key) ;
+					width: $width;
+				}
+
+				@if $heights {
+					$height : map-get($heights, $key) ;
+					// height: $height;
+					@include heightBoxer($height);
+				}
+
+				@if $displays {
+					$display : map-get($displays, $key) ;
+					display: $display;
+				}
+
+
+			}
+		}
+	}
+
+
+
+
+	@mixin heightBoxer($height) {
+		height: $height;
+	  	min-height: $height;
+	  	line-height: $height;
+	}
+
+
+
+	@mixin sectionMargins ($header_heights: null, $footer_heights:null) {
+		@each $key, $screen-size in $breakpoints {
+			@media #{$screen-size}{
+
+				@if $header_heights {
+					$header_height : map-get($header_heights, $key) ;
+					// height: $height;
+					margin-top: $header_height;
+				}
+				@if $footer_heights {
+					$footer_height : map-get($footer_heights, $key) ;
+					margin-bottom: $footer_height;
+				}
+
+			}
+		}
+
+	}
+
+
+
+	@mixin boxPaddings ($paddings: null) {
+		@each $key, $screen-size in $breakpoints {
+			@media #{$screen-size}{
+				@if $paddings {
+					$padding : map-get($paddings, $key) ;
+					padding: $padding;
+				}
+			}
+		}
+	}
+
+
+	@mixin stick-nav-to-top-of-container {
+		top: 0;
+		margin-top: 1rem !important;
+	}
+
+
+	@mixin allHeights($height){
+		height: $height;
+		min-height: $height;
+		max-height: $height;
+	}
+
+	@mixin removeParagraphsFormatting($element){
+		#{$element} {
+
+			display: inline-block;
+			width: 100%;
+			// white-space: pre;
+
+			span{
+				float: left;
+			}
+
+			p{
+				display: inline;
+				margin: 0;
+				padding: 0;
+				float: left;
+				clear: both;
+			}
+		}
+	}
+
+	// - EOF - BOXES, CONTAINERS, DIVS...
+
+
+
+
+
+
+
+
+
+
+// - EOF - FUNCTIONS AND MIXINS

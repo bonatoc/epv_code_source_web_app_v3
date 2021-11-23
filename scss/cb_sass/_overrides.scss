@@ -1,0 +1,162 @@
+// GLOBAL OVERRIDES : HTML, FRAMEWORKS, MODULES/PLUGINS CSS/SCSS, YOU WANT TO STAY GLOBAL HERE
+
+	// HTML TAGS OVERRIDE
+	
+		p{
+			margin:0;
+			padding:0;
+		}
+
+		a{
+			@include transition_set(all,0.35s);
+	
+			padding-left:0.15rem;
+			padding-right:0.15rem;
+	
+			border-bottom: 1px solid rgba(2, 119, 189, 0.19);
+			background: rgba(2, 119, 189, 0);
+	
+			color: #01579B;
+			text-decoration: none;
+	
+			cursor: pointer;
+	
+			&:hover{
+				@include transition_set(all,0.35s);
+		
+				background: rgba(2, 119, 189, 0.09);
+				border-bottom: none;
+		
+				color: #0277BD;
+			}
+		}
+	
+	// - EOF - HTML TAGS OVERRIDE
+
+
+
+
+	// IONIC FRAMEWORK OVERRIDES
+	
+		.padding{
+			padding: 0;
+		}
+
+		.row{
+			padding: 0;
+		}
+
+		.row:nth-child(2){
+			margin-top:0vh;
+		}
+
+		.col{
+			padding: 0;
+		}
+
+		.has-tabs, .bar-footer.has-tabs{
+			bottom:0;
+		}
+
+		.tabs{
+			display: none; // MAKE IT APPEAR ON MOBILE ONLY? 
+		}
+
+		.has-header{
+			top: 0;
+		}
+
+		.bar-header{
+			display: none; // MAKE IT APPEAR ON MOBILE ONLY? 
+		}
+
+		 // TODO: CHECK IF force-no-header STILL REQUIRED IN DOM
+		.has-header-with-subnav-folded, .force-no-header {
+			top: $topnav-height;
+		}
+
+	// - EOF - IONIC FRAMEWORK OVERRIDES
+
+
+
+
+	// ANGULAR MATERIAL OVERRIDES
+
+		.md-dialog-container{
+			z-index: 1000;
+		}
+
+		md-dialog .md-actions {
+			z-index: 600;
+	
+			background: white;
+		}
+
+		// TODO: REPLACE .service_list IN THE DOM AND OTHER SIMILAR SIDENAV LIST WITH A MORE GENERIC ONE : .sidenav_list, THEN KEEP ONLY : md-sidenav, .sidenav_list{...}
+		md-sidenav, .service_list, .sidenav_list{ 
+	
+			.md-subheader{
+				z-index:300;
+				margin-right:0;
+		
+				background: white;
+		
+				font-size: 1rem;
+				color: black;
+			} // .md-subheader
+
+			.item{
+				@include transition_set(all,0.35s);
+		
+				background:$color3;
+		
+				font-family: 'Roboto';
+				font-size: 0.85rem;
+				color: rgba(0,0,0,0.54);
+		
+				cursor: pointer;
+		
+				img{
+					@include transition_set(all,0.35s);
+					opacity:0.4;
+			
+					height:2rem; 
+					width:auto;
+				}
+		
+				&:hover{
+					background: lighten($color3,10%);
+					color:#444;
+			
+					img{
+						opacity:0.6;
+					}
+				};
+		
+				&.active{
+					z-index: 10;
+			
+					background: white;
+					box-shadow: 0px 2px 7px 0 rgba(0, 0, 0, 0.12);
+					border-color: #dadada;
+			
+					color: black;
+			
+					img{
+						opacity:1;
+					}
+				}
+			} // .item
+	
+		} // md-sidenav, .service_list
+		
+		md-tooltip{
+			font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif !important;
+		}
+
+	// ANGULAR MATERIAL OVERRIDES
+
+
+
+
+// - EOF - GLOBAL OVERRIDES : HTML, FRAMEWORKS, MODULES/PLUGINS CSS/SCSS, YOU WANT TO STAY GLOBAL HERE

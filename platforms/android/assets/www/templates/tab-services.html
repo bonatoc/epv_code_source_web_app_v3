@@ -1,0 +1,140 @@
+<!-- COMMENTED_OUT
+<ion-view view-title="Products" 
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.productfamilies" 
+ng-attr-swipe-right-gesture="swiperight"
+swipe-left-to-page 
+ng-attr-swipe-left-target="none" 
+ng-attr-swipe-left-state="tab.dash" 
+ng-attr-swipe-left-gesture="swipeleft" 
+>- EOF - COMMENTED_OUT -->
+
+<ion-view view-title="Products">
+<ion-content class="padding page_content products_template" scroll="false">
+
+
+			
+<!-- COMMENTED_OUT
+			<div layout="row" class="row-up">
+			  <div flex  style="background:orange";>
+			    [flex]
+			  </div>
+			  <div flex  style="background:red";>
+			    [flex]
+			  </div>
+			</div>
+- EOF - COMMENTED_OUT -->
+
+
+
+
+
+			
+	
+	<div flex layout="row" class="row-single" style="height:94vh;">
+	 	<md-content flex="30" style="color:black; ">
+		
+						<figure>
+							
+							<div id="CSS3Slideshow">
+								<img data-ng-repeat="counter in [1,2,3,4]" class="img{{::counter}}" ng-src="img/product-sliders/{{::selectedProductID}}/{{::counter}}.jpg">
+								
+<!-- PRELOADING OF ASSETS - TODO : WEBWORKER OR LAZYLOAD
+								<div ng-if="counter > 1" style="display:none; background-image:url(img/product-sliders/{{::nextPageID}}/{{::counter}}.jpg)"></div>
+								<div ng-if="counter > 1" style="display:none; background-image:url(img/product-sliders/{{::previousPageID}}/{{::counter}}.jpg)"></div>
+- EOF - PRELOADING OF ASSETS - TODO : WEBWORKER OR LAZYLOAD -->
+								
+							</div>
+							
+						</figure>
+						
+		</md-content>
+	 	<md-content flex="70" style="color:black; padding-top:1.825rem; box-shadow:-3px 8px 17px rgba(0, 0, 0, 0.32);" class="md-whiteframe-z2">
+		
+		
+			<md-content class="md_top_toolbar_container" ng-init="selectedProductTab=0">
+			    <md-toolbar>
+			      <div class="md-toolbar-tools">
+			        <h3>
+			          <span
+  					ng-bind-html="Product.Product | translate | removebr"
+  					front-office-edit="Product.Product" 
+  					ng-attr-stringid="{{Product.ProductString_ID}}" 
+  					ng-attr-stringname="{{Product.Product}}" 
+					  
+					  ></span>
+			        </h3>
+			        <span flex></span>
+			        <md-button class="md-icon-button" aria-label="Favorite" ng-click="selectedProductTab=0" ng-class="{'md-activated': selectedProductTab == 0}">
+<!-- COMMENTED_OUT
+			          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+- EOF - COMMENTED_OUT -->
+					offre
+			        </md-button>
+			        <md-button class="md-icon-button" aria-label="More" ng-click="selectedProductTab=1" ng-class="{'md-activated': selectedProductTab == 1}">
+<!-- COMMENTED_OUT
+			          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+- EOF - COMMENTED_OUT -->
+					modalités 
+			        </md-button>
+			      </div>
+			    </md-toolbar>
+			</md-content>
+			
+			
+			
+			
+		
+		
+			<ion-content style="margin-bottom:7vh; padding: 0 3rem;   font-family: 'Roboto';
+  font-size: 100%;
+  line-height: 162%;" class="products_template_tabs_container">
+			
+			
+			        <h3 style="
+					font-size: 1.26rem;
+					font-family: 'minionpro';
+					">
+			          <span 
+					ng-bind-html="Product.ShortDescription | translate"
+					front-office-edit="Product.ShortDescription" 
+					ng-attr-stringid="{{Product.ShortDescriptionString_ID}}" 
+					ng-attr-stringname="{{Product.ShortDescription}}" 
+					  ></span>
+			        </h3>
+	
+				<div>
+					this is tab SERVICES (single service template)
+				test FIRST<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+-				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test<br>
+				test LAST<br>
+				</div>
+				
+			</ion-content>
+		</md-content>
+	</div>
+	
+
+</ion-content>
+</ion-view>

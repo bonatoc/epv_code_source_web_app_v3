@@ -1,0 +1,262 @@
+<ion-view view-title="Dashboard"
+swipe-right-to-page 
+ng-attr-swipe-right-target="none" 
+ng-attr-swipe-right-state="tab.saveddata" 
+ng-attr-swipe-right-gesture="swiperight"
+>
+  <ion-content class="padding">
+<div class="page_content">
+	
+	<div class="row row-up" style="
+	">
+		<div class="col col-67 color1">
+		<ion-content class="col-1 ion-content-height">
+		
+			<div style="
+			background:black;
+			height:2rem;
+			width:2rem;
+			padding:0;
+			margin:0;
+			">
+				 1
+			</div>
+			
+			<div ng-init="zevalue=false;">
+				 <md-content>
+				<md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+				    Checkbox 1: {{ data.cb1 }}
+				  </md-checkbox>
+				
+				  <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+				  <md-progress-linear class="md-warn" md-mode="buffer" value="{{determinateValue}}" md-buffer-value="{{determinateValue2}}">
+				  </md-progress-linear>
+				  <md-progress-linear class="md-accent" md-mode="{{mode}}" value="{{determinateValue}}"></md-progress-linear>
+				  <md-progress-linear md-theme="custom" md-mode="determinate" ng-value="determinateValue" ></md-progress-linear>
+
+				
+				  <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
+			    
+				    <md-card>
+				      <img src="http://goinvade.com/wp-content/uploads/2014/07/prince.jpg" alt="Washed Out" pagespeed_url_hash="3292878804" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+				      <md-card-content>
+				        <h2>Paracosm</h2>
+				        <p>
+				          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+				          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+				        </p>
+				      </md-card-content>
+				    </md-card>					
+				
+				 </md-content>
+			</div>
+			
+			
+			<div layout="column" style="background:brown; ">
+				 <md-button class="md-raised" ng-click="zevalue = !zevalue">{{zevalue}}</md-button>
+				
+			  	<div flex="75" style="background:yellow; color:black; padding:2rem;">
+				
+					<div layout="row" class="tr_heigt" ng-class="{'little': !zevalue, 'big': zevalue}" style="background:grey;">
+<!-- COMMENTED_OUT 
+					<div layout="row" class="tr_heigt" style="background:grey;">
+- EOF - COMMENTED_OUT -->
+					  <div class="tr_width" ng-class="{'narrow': !zevalue, 'large': zevalue}">I'm left.</div>
+					  <div style="background:lime;" ng-class="{'narrow': zevalue, 'large': !zevalue}" >I'm right.</div>
+					</div>
+					
+					hello some text in yellow box<br>
+					
+					<md-whiteframe 
+					ng-init="machin = true" 
+					ng-mouseover="machin = false" 
+					ng-mouseleave="machin = true" 
+					ng-class="{'md-whiteframe-z1': machin, 'md-whiteframe-z5': !machin}" 
+					layout layout-align="center center" class="tr_heigt" style="background:white;">
+					    <span>machin</span>
+					  </md-whiteframe>
+					
+					
+				</div>
+				
+			  <div flex="25">I'm below.
+				
+				<md-tabs class="md-accent" md-selected="data.selectedIndex">
+				      <md-tab id="tab1" aria-controls="tab1-content">
+				        Item One
+				      </md-tab>
+				      <md-tab id="tab2" aria-controls="tab2-content"
+				              ng-disabled="data.secondLocked">
+				        {{data.secondLabel}}
+				      </md-tab>
+				      <md-tab id="tab3" aria-controls="tab3-content">
+				        Item Three
+				      </md-tab>
+				    </md-tabs>
+				    <ng-switch on="data.selectedIndex" class="tabpanel-container">
+				        <div role="tabpanel"
+				             id="tab1-content"
+				             aria-labelledby="tab1"
+				             ng-switch-when="0"
+				             md-swipe-left="next()"
+				             md-swipe-right="previous()" >
+				            View for Item #1<br/>
+				            data.selectedIndex = 0
+				        </div>
+				        <div role="tabpanel"
+				             id="tab2-content"
+				             aria-labelledby="tab2"
+				             ng-switch-when="1"
+				             md-swipe-left="next()"
+				             md-swipe-right="previous()" >
+				            View for {{data.secondLabel}}<br/>
+				            data.selectedIndex = 1
+				        </div>
+				        <div role="tabpanel"
+				             id="tab3-content"
+				             aria-labelledby="tab3"
+				             ng-switch-when="2"
+				             md-swipe-left="next()"
+				             md-swipe-right="previous()" >
+				            View for Item #3<br/>
+				            data.selectedIndex = 2
+				        </div>
+				    </ng-switch>
+				    <div class="after-tabs-area" layout="row" layout-sm="column" layout-margin layout-align="left center">
+				        <md-text-float type="number" label="Selected Index" ng-model="data.selectedIndex"></md-text-float>
+				        <div flex></div>
+				        <span>Item Two: </span>
+				        <md-checkbox ng-model="data.secondLocked" aria-label="Disabled">
+				          Disabled
+				        </md-checkbox>
+				    </div>
+				
+				</div>
+			</div>
+			
+			
+			
+			
+		
+			<h1 class="bidule">ACCUEIL</h1>
+			<h3>COL 1 LEFT</h3>
+			<a href="#/tab/saveddata">saveddata</a>
+			<i class="icon-exclamation"></i>
+			
+			FIRST <br>
+				
+			LAST hello ion-content<br><br>
+		</ion-content>
+		</div>
+		
+		<div class="col col-33 color2 md-whiteframe-z2" style="z-index:500;">
+			
+			<div style="
+			float:right;
+			background:black;
+			height:2rem;
+			width:2rem;
+			padding:0;
+			margin:0;
+			z-index:300;
+			">
+				 2b
+			</div>
+			
+			
+		<ion-content class="col-2 ion-content-height">
+		
+			<!-- COMMENTED_OUT 
+			<div style="
+			float:right;
+			background:black;
+			height:2rem;
+			width:2rem;
+			padding:0;
+			margin:0;
+			z-index:300;
+			">
+				 2
+			</div>
+- EOF - COMMENTED_OUT -->
+			
+			
+			
+<!-- COMMENTED_OUT
+			<div layout="row" layout-fill>
+			  <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+			    <span>.md-whiteframe-z1</span>
+			  </md-whiteframe>
+			  <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center">
+			    <span>.md-whiteframe-z2</span>
+			  </md-whiteframe>
+			  <md-whiteframe class="md-whiteframe-z3" layout layout-align="center center">
+			    <span>.md-whiteframe-z3</span>
+			  </md-whiteframe>
+			  <md-whiteframe class="md-whiteframe-z4" layout layout-align="center center">
+			    <span>.md-whiteframe-z4</span>
+			  </md-whiteframe>
+			  <md-whiteframe class="md-whiteframe-z5" layout layout-align="center center">
+			    <span>.md-whiteframe-z5</span>
+			  </md-whiteframe>
+			</div>
+- EOF - COMMENTED_OUT -->
+			
+		
+			COL 2 RIGHT<br>
+			FIRST 
+				hello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-contenthello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+				hello ion-content<br>
+			LAST hello ion-content<br><br>
+			</ion-content>
+		</div>
+				
+				
+		
+	
+	</div>
+
+	
+	
+	
+	
+
+
+
+
+
+</div>
+  </ion-content>
+</ion-view>
